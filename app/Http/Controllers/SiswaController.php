@@ -39,31 +39,34 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         Request()->validate([
             'nama'=>'required',
             'nisn'=>'required|unique:siswa,nisn',
             'kelas'=>'required',
             'jurusan'=>'required',
-            'nopeserta'=>'required'
+            'no_kelas'=>'required',
+            'no_peserta'=>'required'
         ]);
 
         $nama = Request()->nama;
         $nisn = Request()->nisn;
         $kelas = Request()->kelas;
-        $nokelas = Request()->nokelas;
+        $nokelas = Request()->no_kelas;
         $idJurusan = Request()->jurusan;
-        $nopeserta = Request()->nopeserta;
+        $no_peserta = Request()->no_peserta;
 
 
         DB::table('siswa')->insert([
-              'nama'=>'required',
-            'nisn'=>'required|unique:siswa,nisn',
-            'kelas'=>'required',
-            'jurusan'=>'required',
+            'nama'=>$nama,
+            'nisn'=>$nisn,
+            'kelas'=>$kelas,
+            'id_jurusan'=>$idJurusan,
             'no_kelas'=>$nokelas,
-            'no_peserta'=>$nopeserta
+            'no_peserta'=>$no_peserta
         ]);
-        return redirect('/siswa')->with('alert','Siswa Berhasil Ditambahkan');
+        // dd($request);
+        return redirect('/admin/panel/siswa')->with('alert','Siswa Berhasil Ditambahkan');
 
     }
 
