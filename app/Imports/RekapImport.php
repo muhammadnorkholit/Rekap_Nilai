@@ -22,15 +22,22 @@ class RekapImport implements ToModel,WithHeadingRow
     public function model(array $row)
     {
 
-         $idMapel = DB::table('mapel')->where('id',$this->idmapel)->first('id');
-        $idSiswa = DB::table('siswa')->where('no_peserta',$row['no_peserta'])->first();
+         $mapel = DB::table('mapel')->where('id',$this->idmapel)->first();
+        $siswa = DB::table('siswa')->where('no_peserta',$row['no_peserta'])->first();
+        $count = DB::table('data_rekap')
+        ->where('mapel',$mapel)
+        ->where('no_peserta',$row['no_peserta'])
+        ->whereMonth('tgl_rekap',date('m'))
+        ->count();
+
+        if($count > 0)return;
         $nilaiB  = $row['b'];
         $nilaiS  = $row['s'];
         $rata  = $row['Skor'];
 
         DB::table('rekap')->insert([
-            'id_mapel'=>$idMapel->id,
-            'id_siswa'=>$idSiswa->id,
+            'id_mapel'=>$mapel->id,
+            'id_siswa'=>$siswa->id,
             'total_nilai_B'=>$nilaiB,
             'total_nilai_S'=>$nilaiS,
             'rata_rata'=>$rata,

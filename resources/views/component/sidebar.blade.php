@@ -2,7 +2,7 @@
     <div class="scrollbar-inner">
         <!-- Brand -->
         <div class="sidenav-header d-flex align-items-center">
-            <a class="navbar-brand" href="{{ asset('pages') }}/dashboards/dashboard.html">
+            <a class="navbar-brand" href="/admin/panel">
                 <img src="{{ asset('assets') }}/img/brand/blue.png" class="navbar-brand-img" alt="...">
             </a>
             <div class="ml-auto">
@@ -25,7 +25,7 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="/dashboard">
+                        <a class="nav-link active" href="/admin/panel">
                             <i class="ni ni-shop text-primary"></i>
                             <span class="nav-link-text">Dashboard</span>
                         </a>
@@ -43,7 +43,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/panel/rekap" role="button" aria-expanded="false"
                             aria-controls="navbar-components">
-                            <i class="ni ni-ui-04 text-info"></i>
+                            <i class="ni ni-book-bookmark text-info"></i>
                             <span class="nav-link-text">Rekap Nilai</span>
                         </a>
                     </li>
@@ -51,15 +51,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/panel/mapel" role="button" aria-expanded="false"
                             aria-controls="navbar-components">
-                            <i class="ni ni-ui-04 text-info"></i>
+                            <i class="ni ni-books text-info"></i>
                             <span class="nav-link-text">Mapel</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/panel/jurusan" role="button" aria-expanded="false"
                             aria-controls="navbar-components">
-                            <i class="ni ni-ui-04 text-info"></i>
+                            <i class="ni ni-atom text-info"></i>
                             <span class="nav-link-text">Jurusan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/panel/operator" role="button" aria-expanded="false"
+                            aria-controls="navbar-components">
+                            <i class="ni ni-settings text-info"></i>
+                            <span class="nav-link-text">Operator</span>
                         </a>
                     </li>
                 </ul>

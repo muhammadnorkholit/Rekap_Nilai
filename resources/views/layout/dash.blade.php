@@ -35,6 +35,17 @@
     label {
         cursor: pointer;
     }
+
+    body *::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        background: #1c396a;
+    }
+
+    body *::-webkit-scrollbar-thumb {
+        background: #426bb1;
+
+    }
 </style>
 
 <body>

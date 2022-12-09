@@ -1,6 +1,12 @@
 @extends('layout.dash')
 
 @section('content')
+    @if (Session::has('alert'))
+        <div class="alert alert-success rounded-0">
+            {{ Session::get('alert') }}
+        </div>
+    @endif
+
     <div class="header bg-primary pb-6">
         <div class="container-fluid">
             <div class="header-body">
@@ -119,6 +125,7 @@
                                         <th scope="col" class="sort">Nama</th>
                                         <th scope="col" class="sort">Nisn</th>
                                         <th scope="col" class="sort">Kelas</th>
+                                        <th scope="col" class="sort">Mapel</th>
                                         <th scope="col" class="sort">Total Jawaban Benar</th>
                                         <th scope="col" class="sort">Total Jawaban Salah</th>
                                         <th scope="col" class="sort">Rata Rata</th>
@@ -141,6 +148,9 @@
                                                 {{ $r->kelas }} <span
                                                     class="text-capitalize">{{ $r->jurusan }}</span>
                                                 {{ $r->no_kelas }}
+                                            </td>
+                                            <td>
+                                                {{ $r->mapel }}
                                             </td>
                                             <td>
                                                 {{ $r->total_jawaban_B }}

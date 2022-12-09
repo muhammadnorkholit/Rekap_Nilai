@@ -22,9 +22,9 @@ class MapelImport implements ToModel,WithHeadingRow
     public function model(array $row)
     {
             $this->no++;
-
-        if($row['no'] == null || $row['mapel'] == null)return;
-        
+        if(count($row) == 0)return;
+        if($row['kode_mapel'] == null|| $row['mapel'] == null)return;
+        // dd($row);
         $count = DB::table('mapel')->where('mapel',$row['mapel'])->count();
 
         if($count > 0)return;

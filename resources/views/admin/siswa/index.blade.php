@@ -1,6 +1,12 @@
 @extends('layout.dash')
 
 @section('content')
+    @if (Session::has('alert'))
+        <div class="alert alert-success rounded-0">
+            {{ Session::get('alert') }}
+        </div>
+    @endif
+
     <div class="header bg-primary pb-6">
         <div class="container-fluid">
             <div class="header-body">
@@ -25,9 +31,11 @@
                 <div class="card bg-default shadow">
                     <div class="card-header bg-transparent border-0">
                         <a href="/admin/panel/siswa/create" class="btn btn-primary">Tambah data</a>
-                        <form class="d-inline-block" action="/admin/panel/siswa/import" method="post">
-                            <button type="submit" class="btn btn-primary">Import
-                                Siswa</button>
+                        <form class="d-inline-block " action="/admin/panel/siswaImport" enctype="multipart/form-data"
+                            method="post">
+                            @csrf
+                            <input type="file" name="file" onchange="form.submit()" class="d-none" id="import">
+                            <label for="import" class="m-0 btn btn-primary">Import</label>
                         </form>
                         <form class="d-inline-block" action="/admin/panel/siswa/export" method="post">
                             <button type="submit" class="btn btn-primary">Export
@@ -59,7 +67,7 @@
 
                                         </td>
                                         <td>
-                                            {{ $s->kelas }} {{ $s->jurusan }} {{ $s->no_kelas }} 
+                                            {{ $s->kelas }} {{ $s->jurusan }} {{ $s->no_kelas }}
                                         </td>
                                         <td>
                                             <a href="ubahSiswa"><i class="fa fa-edit" style="color:skyblue ;"></i></a>

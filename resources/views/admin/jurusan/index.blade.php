@@ -1,6 +1,12 @@
 @extends('layout.dash')
 
 @section('content')
+    @if (Session::has('alert'))
+        <div class="alert alert-success rounded-0">
+            {{ Session::get('alert') }}
+        </div>
+    @endif
+
     <div class="header bg-primary pb-6">
         <div class="container-fluid">
             <div class="header-body">
