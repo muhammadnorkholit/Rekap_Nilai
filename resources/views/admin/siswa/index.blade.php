@@ -42,8 +42,6 @@
                                     <th scope="col" class="sort">Nama</th>
                                     <th scope="col" class="sort">Nisn</th>
                                     <th scope="col" class="sort">Kelas</th>
-                                    <th scope="col" class="sort">No Kelas</th>
-                                    <th scope="col" class="sort">Jurusan</th>
                                     <th scope="col" class="sort">Action</th>
                                 </tr>
                             </thead>
@@ -61,16 +59,7 @@
 
                                         </td>
                                         <td>
-                                            {{ $s->kelas }}
-
-                                        </td>
-                                        <td>
-                                            {{ $s->no_kelas }}
-
-                                        </td>
-                                        <td>
-                                            <span class="text-capitalize"> {{ $s->jurusan }}</span>
-
+                                            {{ $s->kelas }} {{ $s->jurusan }} {{ $s->no_kelas }} 
                                         </td>
                                         <td>
                                             <a href="ubahSiswa"><i class="fa fa-edit" style="color:skyblue ;"></i></a>
