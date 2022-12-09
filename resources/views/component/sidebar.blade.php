@@ -55,6 +55,13 @@
                             <span class="nav-link-text">Mapel</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/panel/jurusan" role="button" aria-expanded="false"
+                            aria-controls="navbar-components">
+                            <i class="ni ni-ui-04 text-info"></i>
+                            <span class="nav-link-text">Jurusan</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

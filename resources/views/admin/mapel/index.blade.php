@@ -46,8 +46,9 @@
                                             {{ $m->mapel }}
                                         </td>
                                         <td>
-                                            <a href="/admin/panel/mapel/{{ $m->id }}/edit">Ubah</a>
-                                            <a href="">hapus</a>
+                                            <a href="/admin/panel/mapel/{{ $m->id }}/edit"><i
+                                                    class="fa fa-edit"></i></a>
+                                            <a href=""><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -55,6 +56,8 @@
                         </table>
                     </div>
                 </div>
+                {{ $mapel->links() }}
+
             </div>
         </div>
     </div>

@@ -37,11 +37,10 @@
                         </div>
                         <div class="col-auto">
                             <label for="">Pilih File Nilai</label>
-                            <input type="file" class="form-control   " name="file" id="importfile">
-                            {{-- <label class="btn btn-primary m-0" for="importfile">
-                                Import
-                                Nilai
-                            </label> --}}
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input   " name="file" id="importfile">
+                                <label for="" class="custom-file-label">Pilih File</label>
+                            </div>
                         </div>
                         <div class="col-auto">
                             <button class="btn btn-primary m-0">Import</button>
@@ -67,6 +66,7 @@
                                     <th scope="col" class="sort">Kelas</th>
                                     <th scope="col" class="sort">Total Jawaban Benar</th>
                                     <th scope="col" class="sort">Total Jawaban Salah</th>
+                                    <th scope="col" class="sort">Rata Rata</th>
                                     <th scope="col" class="sort">Action</th>
                                 </tr>
                             </thead>
@@ -91,6 +91,9 @@
                                         </td>
                                         <td>
                                             {{ $r->total_jawaban_S }}
+                                        </td>
+                                        <td>
+                                            {{ $r->rata_rata }}
                                         </td>
                                         <td>
                                             <a href="ubahSiswa"><i class="fa fa-edit" style="color:skyblue ;"></i></a>
