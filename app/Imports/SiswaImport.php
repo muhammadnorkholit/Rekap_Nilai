@@ -17,7 +17,7 @@ class SiswaImport implements ToModel
         $nama = $row[0]; 
         $nisn = $row[1]; 
         $no = $row[2]; 
-        $noKelas = $row[3]; 
+        $noKelas = $row[3];
         return new siswa([
             DB::table('siswa')->insert([
                 'nama'=>$nama,

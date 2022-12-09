@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Str;
 class MapelController extends Controller
 {
     /**
@@ -38,19 +39,17 @@ class MapelController extends Controller
     {
         Request()->validate(
             [
-                'nama'=>'required',
+                'mapel'=>'required',
             ]
         );
 
-        $nama = Request()->nama;
-        $namaPendek = Request()->nama_pendek;
+        $mapel = Str::upper(Request()->mapel);
 
       
 
         // insert data to database
         DB::table('mapel')->insert([
-            'nama'=>$nama,
-            'nama_pendek'=>$namaPendek,
+            'mapel'=>$mapel,
         ]);
 
         return redirect('/admin/panel/mapel')->with('alert','Berhasil Menambah Mapel');
@@ -77,7 +76,8 @@ class MapelController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.mapel.edit');
+        $mapel = DB::table('mapel')->where('id',$id)->first();
+        return view('admin.mapel.edit',compact('mapel'));
        
     }
 
@@ -92,20 +92,18 @@ class MapelController extends Controller
     {
          Request()->validate(
             [
-                'nama'=>'required',
+                'mapel'=>'required',
             ]
         );
 
-        $nama = Request()->nama;
-        $namaPendek = Request()->nama_pendek;
+        $mapel = Str::upper(Request()->mapel);
 
 
      
 
         // insert data to database
         DB::table('mapel')->where('id',$id)->update([
-            'nama'=>$nama,
-            'nama_pendek'=>$namaPendek,
+            'mapel'=>$mapel,
         ]);
 
         return redirect('/admin/panel/mapel')->with('alert','Berhasil Menambah Mapel');

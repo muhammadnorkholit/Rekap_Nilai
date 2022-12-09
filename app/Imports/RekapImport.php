@@ -13,14 +13,13 @@ class RekapImport implements ToModel
     * @return \Illuminate\Database\Eloquent\Model|null
     */
 
-//    public function __construct($idMapel) {
-//     $this->idmapel = $idMapel;
-//    }
+   public function __construct($idMapel) {
+    $this->idmapel = $idMapel;
+   }
 
     public function model(array $row)
     {
-        dd($row);
-         $idMapel = DB::table('mapel')->where('id',1)->first('id');
+         $idMapel = DB::table('mapel')->where('id',$this->idmapel)->first('id');
         $idSiswa = DB::table('siswa')->where('no_peserta',$row[1])->first();
         $nilaiB  = $row[2];
         $nilaiS  = $row[3];

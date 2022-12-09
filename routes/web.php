@@ -23,4 +23,6 @@ Route::resource('/admin/panel/siswa',SiswaController::class );
 Route::resource('/admin/panel/rekap',RekapController::class );
 Route::resource('/admin/panel/jurusan',JurusanController::class );
 
+
+
 Route::post('/admin/panel/rekapImport',[ImportController::class,'importRekap']);

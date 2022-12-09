@@ -33,18 +33,18 @@
                         <div class="card-body">
 
 
-                            <form action="/admin/panel/mapel/{{ $mapel->id }}" method="POST">
+                            <form action="/admin/panel/jurusan/{{ $jurusan->id }}" method="POST">
                                 @method('PUT')
                                 @csrf
                                 <!-- Input groups with icon -->
                                 <div class="form-group">
-                                    <h4><b>Nama Mapel</b></h4>
+                                    <h4><b>Nama jurusan</b></h4>
                                     <div class="input-group input-group-merge">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                                         </div>
-                                        <input value="{{ $mapel->mapel }}" class="form-control" placeholder="Nama Mapel"
-                                            name="mapel" type="text">
+                                        <input value="{{ $jurusan->jurusan }}" class="form-control"
+                                            placeholder="Nama jurusan" name="jurusan" type="text">
                                     </div>
                                 </div>
 

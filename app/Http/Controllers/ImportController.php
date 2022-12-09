@@ -11,7 +11,7 @@ class ImportController extends Controller
     public function importRekap(Request $request)
     {
        
-        Excel::import(new RekapImport, $request->file('file')->store('files'));
+        Excel::import(new RekapImport($request->mapel), $request->file('file')->store('files'));
         return  redirect()->back();
     }
 }

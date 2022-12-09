@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class RekapController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class RekapController extends Controller
     public function index()
     {
         $rekap = DB::table('data_rekap')->get();
-        return view('admin.rekap.index',compact('rekap'));
+        $mapel = DB::table('mapel')->get();
+        return view('admin.rekap.index',compact('rekap','mapel'));
     }
 
     /**
@@ -24,7 +25,11 @@ class RekapController extends Controller
      */
     public function create()
     {
-        //
+         $jurusan = DB::table('jurusan')->get();
+         $mapel = DB::table('mapel')->get();
+         $siswa = DB::table('siswa')->get();
+        return view('admin.rekap.create',compact('mapel','siswa','jurusan'));
+        
     }
 
     /**
