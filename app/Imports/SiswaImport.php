@@ -4,8 +4,9 @@ namespace App\Imports;
 
 use App\Models\siswa;
 use Maatwebsite\Excel\Concerns\ToModel;
-
-class SiswaImport implements ToModel
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use DB;
+class SiswaImport implements ToModel,WithHeadingRow
 {
     /**
     * @param array $row
@@ -14,10 +15,10 @@ class SiswaImport implements ToModel
     */
     public function model(array $row)
     {
-        $nama = $row[0]; 
-        $nisn = $row[1]; 
-        $no = $row[2]; 
-        $noKelas = $row[3];
+        $nama = $row['nama']; 
+        $nisn = $row['nisn']; 
+        $no = $row['no peserta']; 
+        $noKelas = $row['no kelas'];
         return new siswa([
             DB::table('siswa')->insert([
                 'nama'=>$nama,

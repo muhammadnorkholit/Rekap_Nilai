@@ -19,13 +19,22 @@
         </div>
     </div>
 
+
     <div class="container-fluid mt--6">
+
+
+
         <div class="row">
             <div class="col">
                 <div class="card bg-default shadow">
                     <div class="card-header bg-transparent border-0">
                         <a href="/admin/panel/mapel/create" class="btn btn-primary">Tambah data</a>
-
+                        <form class="d-inline-block " action="/admin/panel/mapelImport" enctype="multipart/form-data"
+                            method="post">
+                            @csrf
+                            <input type="file" name="file" onchange="form.submit()" class="d-none" id="import">
+                            <label for="import" class="m-0 btn btn-primary">Import</label>
+                        </form>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-dark table-flush">
@@ -33,6 +42,7 @@
                                 <tr>
                                     <th scope="col" class="sort">No</th>
                                     <th scope="col" class="sort">Nama Mapel</th>
+                                    <th scope="col" class="sort">Kode Mapel</th>
                                     <th scope="col" class="sort">Action</th>
                                 </tr>
                             </thead>
@@ -40,10 +50,13 @@
                                 @foreach ($mapel as $m)
                                     <tr>
                                         <th scope="row">
-                                            {{ $loop->iteration }}
+                                            {{ $loop->iteration + $mapel->perPage() * $mapel->currentPage() - $mapel->perPage() }}
                                         </th>
                                         <td>
                                             {{ $m->mapel }}
+                                        </td>
+                                        <td>
+                                            {{ $m->kode_mapel }}
                                         </td>
                                         <td>
                                             <a href="/admin/panel/mapel/{{ $m->id }}/edit"><i
@@ -53,10 +66,17 @@
                                     </tr>
                                 @endforeach
                             </tbody>
+
                         </table>
+                        <div class="m-3 text-right">
+                            <hr class="border-white ">
+                            {{ $mapel->links() }}
+
+                        </div>
+
                     </div>
                 </div>
-                {{ $mapel->links() }}
+
 
             </div>
         </div>

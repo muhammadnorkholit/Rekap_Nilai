@@ -26,3 +26,5 @@ Route::resource('/admin/panel/jurusan',JurusanController::class );
 
 
 Route::post('/admin/panel/rekapImport',[ImportController::class,'importRekap']);
+Route::post('/admin/panel/mapelImport',[ImportController::class,'importMapel']);
+Route::post('/admin/panel/jurusanImport',[ImportController::class,'importJurusan']);

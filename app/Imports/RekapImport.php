@@ -5,7 +5,9 @@ namespace App\Imports;
 use App\Models\rekap;
 use Maatwebsite\Excel\Concerns\ToModel;
 use DB;
-class RekapImport implements ToModel
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+
+class RekapImport implements ToModel,WithHeadingRow
 {
     /**
     * @param array $row
@@ -19,11 +21,12 @@ class RekapImport implements ToModel
 
     public function model(array $row)
     {
+
          $idMapel = DB::table('mapel')->where('id',$this->idmapel)->first('id');
-        $idSiswa = DB::table('siswa')->where('no_peserta',$row[1])->first();
-        $nilaiB  = $row[2];
-        $nilaiS  = $row[3];
-        $rata  = $row[4];
+        $idSiswa = DB::table('siswa')->where('no_peserta',$row['no_peserta'])->first();
+        $nilaiB  = $row['b'];
+        $nilaiS  = $row['s'];
+        $rata  = $row['Skor'];
 
         DB::table('rekap')->insert([
             'id_mapel'=>$idMapel->id,

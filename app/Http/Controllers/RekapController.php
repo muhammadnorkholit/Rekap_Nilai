@@ -19,6 +19,8 @@ class RekapController extends Controller
             $rekap = DB::table('data_rekap')
             ->where('kelas',Request()->kelas)
             ->where('mapel',Request()->mapel)
+            ->where('jurusan',Request()->jurusan)
+            ->orderBy('nama','asc')
             ->simplePaginate(20);
 
             if(Request()->has('nokelas')){
@@ -27,7 +29,8 @@ class RekapController extends Controller
         }
 
         $mapel = DB::table('mapel')->get();
-        return view('admin.rekap.index',compact('rekap','mapel'));
+        $jurusan = DB::table('jurusan')->get();
+        return view('admin.rekap.index',compact('rekap','mapel','jurusan'));
     }
 
     /**

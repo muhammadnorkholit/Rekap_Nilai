@@ -13,7 +13,9 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswa = DB::table('siswa')->select('jurusan','siswa.*')->join('jurusan','siswa.id_jurusan','jurusan.id')->get();
+        $siswa = DB::table('siswa')
+        ->select('jurusan','siswa.*')
+        ->join('jurusan','siswa.id_jurusan','jurusan.id')->get();
         return view('admin.siswa.index',compact('siswa'));
     }
 
