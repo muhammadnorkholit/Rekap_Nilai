@@ -14,7 +14,7 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        $jurusan = DB::table('jurusan')->get();
+        $jurusan = DB::table('jurusan')->simplePaginate(20);
 
         return view('admin.jurusan.index',compact('jurusan'));
     }

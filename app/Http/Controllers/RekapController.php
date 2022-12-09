@@ -13,7 +13,19 @@ class RekapController extends Controller
      */
     public function index()
     {
-        $rekap = DB::table('data_rekap')->get();
+        $rekap = [];
+
+        if(Request()->has('filter')){
+            $rekap = DB::table('data_rekap')
+            ->where('kelas',Request()->kelas)
+            ->where('mapel',Request()->mapel)
+            ->simplePaginate(20);
+
+            if(Request()->has('nokelas')){
+                $rekap ->where('no_kelas',Request()->nokelas);
+            }
+        }
+
         $mapel = DB::table('mapel')->get();
         return view('admin.rekap.index',compact('rekap','mapel'));
     }

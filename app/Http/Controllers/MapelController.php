@@ -15,7 +15,7 @@ class MapelController extends Controller
     public function index()
     {
         
-        $mapel = DB::table('mapel')->paginate(1);
+        $mapel = DB::table('mapel')->simplePaginate(20);
         return view('admin.mapel.index',compact('mapel'));
     }
 

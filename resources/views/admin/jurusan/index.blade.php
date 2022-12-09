@@ -37,16 +37,16 @@
                                 </tr>
                             </thead>
                             <tbody class="list">
-                                @foreach ($jurusan as $m)
+                                @foreach ($jurusan as $j)
                                     <tr>
                                         <th scope="row">
                                             {{ $loop->iteration }}
                                         </th>
                                         <td>
-                                            {{ $m->jurusan }}
+                                            {{ $j->jurusan }}
                                         </td>
                                         <td>
-                                            <a href="/admin/panel/jurusan/{{ $m->id }}/edit">Ubah</a>
+                                            <a href="/admin/panel/jurusan/{{ $j->id }}/edit">Ubah</a>
                                             <a href="">hapus</a>
                                         </td>
                                     </tr>
@@ -55,6 +55,8 @@
                         </table>
                     </div>
                 </div>
+                {{ $jurusan->links() }}
+
             </div>
         </div>
     </div>
