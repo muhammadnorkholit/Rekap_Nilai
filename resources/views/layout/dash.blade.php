@@ -1,16 +1,3 @@
-<!-- =========================================================
-* Argon Dashboard PRO v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- -->
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
     <meta name="author" content="Creative Tim">
-    <title>Nilai </title>
+    <title>R </title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
@@ -45,6 +32,22 @@
     body *::-webkit-scrollbar-thumb {
         background: #426bb1;
 
+    }
+
+    .alert-notify {
+        display: inline-block;
+        margin: 0px auto;
+        position: fixed;
+        transition: all 0.5s 5s ease-in-out 0s;
+        z-index: 1080;
+        top: -100%;
+        left: 0px;
+        right: 0px;
+        animation-iteration-count: 1;
+    }
+
+    .alert-notify.show {
+        top: 15px
     }
 </style>
 

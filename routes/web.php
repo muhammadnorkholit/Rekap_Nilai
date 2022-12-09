@@ -7,6 +7,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +20,18 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
+Route::get('/auth/login',[AuthController::class,'index'])->name('login');
+Route::post('/auth/login',[AuthController::class,'loginCheck']);
+
+
+Route::middleware(['auth'])->group(function () {
+    
 Route::resource('/admin/panel/mapel',MapelController::class );
 Route::resource('/admin/panel/siswa',SiswaController::class );
 Route::resource('/admin/panel/rekap',RekapController::class );
 Route::resource('/admin/panel/jurusan',JurusanController::class );
 
 Route::get('/admin/panel',[DashboardController::class,'index']);
-
 
 Route::post('/admin/panel/rekapImport',[ImportController::class,'importRekap']);
 Route::post('/admin/panel/mapelImport',[ImportController::class,'importMapel']);
@@ -34,4 +40,8 @@ Route::post('/admin/panel/jurusanImport',[ImportController::class,'importJurusan
 Route::post('/admin/panel/siswaImport',[ImportController::class,'importSiswa']);
 Route::post('/admin/panel/rekapImport',[ImportController::class,'importRekap']);
 Route::post('/admin/panel/siswaImport',[ImportController::class,'importSiswa']);
+});
+
+
+
 
