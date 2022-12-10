@@ -17,12 +17,13 @@ class RekapExport  implements FromView
             ->where('kelas',Request()->kelas)
             ->where('mapel',Request()->mapel)
             ->where('jurusan',Request()->jurusan)
-            ->orderBy('nama','asc')
-            ->get();
+            ->orderBy('nama','asc');
             if(Request()->has('nokelas')){
                 $rekap ->where('no_kelas',Request()->nokelas);
             }
 
-        return  view('admin.export.rekap', compact('rekap'));;
+            $rekap = $rekap->get();
+
+        return  view('admin.export.rekap', compact('rekap'));
     }
 }

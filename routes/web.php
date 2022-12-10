@@ -30,22 +30,23 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-<<<<<<< HEAD
+// <<<<<<< HEAD
     
 Route::resource('/admin/panel/mapel',MapelController::class );
 Route::resource('/admin/panel/siswa',SiswaController::class );
 Route::resource('/admin/panel/rekap',RekapController::class );
 Route::resource('/admin/panel/jurusan',JurusanController::class );
 Route::resource('/admin/panel/operator',OperatorController::class );
-=======
-    Route::get('/logout',[AuthController::class,'logout']);
-    Route::resource('/admin/panel/mapel',MapelController::class );
-    Route::resource('/admin/panel/siswa',SiswaController::class );
-    Route::resource('/admin/panel/rekap',RekapController::class );
-    Route::resource('/admin/panel/jurusan',JurusanController::class );
->>>>>>> 9fd4b16bc9befcddf6a3f76829af972f12655e15
+// =======
+//     Route::get('/logout',[AuthController::class,'logout']);
+//     Route::resource('/admin/panel/mapel',MapelController::class );
+//     Route::resource('/admin/panel/siswa',SiswaController::class );
+//     Route::resource('/admin/panel/rekap',RekapController::class );
+//     Route::resource('/admin/panel/jurusan',JurusanController::class );
+// >>>>>>> 9fd4b16bc9befcddf6a3f76829af972f12655e15
 
     Route::get('/admin/panel',[DashboardController::class,'index']);
+    Route::get('/admin/panel/printRekap',[RekapController::class,'print']);
 
     Route::post('/admin/panel/rekapImport',[ImportController::class,'importRekap']);
     Route::post('/admin/panel/mapelImport',[ImportController::class,'importMapel']);

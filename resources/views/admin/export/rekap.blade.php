@@ -12,16 +12,16 @@
 
     <table>
         <tr>
-            <th colspan="8">
+            <th colspan="8" rowspan="2">
                 <h1 class="fw-bold">
-                    REKAP_NILAI <br>
+                    REKAP NILAI <br>
                     PAS GANJIL {{ $rekap[0]->kelas }} {{ $rekap[0]->jurusan }} {{ $rekap[0]->no_kelas }}
                 </h1>
             </th>
 
         </tr>
     </table>
-    <table>
+    <table border="1">
         <thead>
             <tr>
                 <th>No</th>
@@ -40,8 +40,8 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $r->nama }}</td>
                     <td>{{ $r->no_peserta }}</td>
-                    <td>{{ $r->kelas }} {{ $r->jurusan }} {{ $r->no_kelas }}</td>
-                    <td>{{ $r->mapel }}</td>
+                    <td style="min-width: 300px">{{ $r->kelas }} {{ $r->jurusan }} {{ $r->no_kelas }}</td>
+                    <td style="min-width: 300px">{{ $r->mapel }}</td>
                     <td>{{ $r->total_jawaban_B }}</td>
                     <td>{{ $r->total_jawaban_S }}</td>
                     <td>{{ $r->rata_rata }}</td>

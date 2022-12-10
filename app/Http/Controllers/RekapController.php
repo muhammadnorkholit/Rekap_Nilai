@@ -41,6 +41,33 @@ class RekapController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function print()
+     {
+                $rekap = [];
+
+        if(Request()->has('filter')){
+            $rekap = DB::table('data_rekap')
+            ->where('kelas',Request()->kelas)
+            ->where('mapel',Request()->mapel)
+            ->where('jurusan',Request()->jurusan)
+            ->orderBy('nama','asc');
+
+            if(Request()->has('nokelas')){
+                $rekap->where('no_kelas',Request()->nokelas);
+            }
+            $rekap = $rekap->simplePaginate(20);
+
+        }
+
+            
+        
+        $mapel = DB::table('mapel')->get();
+        $jurusan = DB::table('jurusan')->get();
+        return view('admin.rekap.print',compact('rekap','mapel','jurusan'));
+     }
+
+
     public function create()
     {
          $jurusan = DB::table('jurusan')->get();
@@ -103,6 +130,7 @@ class RekapController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('rekap')->where('id',$id)->delete();
+        return redirect()->back()->with('alert','Data Berhasil Dihapus');
     }
 }

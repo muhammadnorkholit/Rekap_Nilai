@@ -41,7 +41,7 @@
         display: inline-block;
         margin: 0px auto;
         position: fixed;
-        transition: all 0.5s 5s ease-in-out 0s;
+        transition: all 0.5s ease-in-out 0s;
         z-index: 1080;
         top: -100%;
         left: 0px;
@@ -87,6 +87,17 @@
     <!-- Argon JS -->
     <script src="{{ asset('assets') }}/js/argon.js?v=1.1.0"></script>
 
+
+
+    <script>
+        const alert = document.querySelector('.alert');
+
+        if (alert.classList.contains('show')) {
+            setTimeout(() => {
+                alert.classList.remove('show')
+            }, 4000);
+        }
+    </script>
 
     <!-- Optional JS -->
     <!-- Argon JS -->
