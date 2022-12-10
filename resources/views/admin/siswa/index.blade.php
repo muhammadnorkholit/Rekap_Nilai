@@ -73,10 +73,40 @@
                                             {{ $s->kelas }} {{ $s->jurusan }} {{ $s->no_kelas }}
                                         </td>
                                         <td>
-                                            <a href="ubahSiswa"><i class="fa fa-edit" style="color:skyblue ;"></i></a>
-                                            <a href=""><i class="fa fa-trash"
-                                                    style="color:color rgb(64, 0, 0) ;"></i></a>
+                                            <a class="btn btn-info" href="/admin/panel/siswa/edit/{{ $s->id }}">edit</a>
+                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#hapus{{ $s->id }}">Hapus</button>
                                         </td>
+
+                                        {{-- delete --}}
+                                        <form action="/admin/panel/operator/{{ $s->id }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                                <div class="modal fade" id="hapus{{ $s->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+                                                        <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                                                        <div class="modal-content bg-gradient-danger">
+                                                            <div class="modal-header">
+                                                            <h6 class="modal-title" id="modal-title-notification">{{ $s->nama}}</h6>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            <div class="py-3 text-center">
+                                                                <i class="ni ni-bell-55 ni-3x"></i>
+                                                                <h4 class="heading mt-4">Anda yakin akan hapus, {{$s->nama}} ??</h4>
+                                                                <p>Data yang sudah di hapus tidak akan bisa di kembalikan!!</p>
+                                                            </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="submit" class="btn btn-white">Hapus</button>
+                                                                <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                </div>
+                                        </form>
+                                            
+                                        {{-- delete --}}
                                     </tr>
                                 @endforeach
                             </tbody>

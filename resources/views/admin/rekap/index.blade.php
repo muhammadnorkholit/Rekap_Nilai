@@ -65,7 +65,7 @@
                         <div class="col-auto my-2 pr-0">
                             <label for="">Jurusan</label>
                             <select name="jurusan" class="form-control m-0" id="">
-                                <option value="" holder>Pilih Kelas</option>
+                                <option value="" holder>Pilih Jurusan</option>
                                 @foreach ($jurusan as $j)
                                     <option value="{{ $j->jurusan }}">{{ $j->jurusan }}</option>
                                 @endforeach
@@ -165,10 +165,8 @@
                                                 {{ $r->rata_rata }}
                                             </td>
                                             <td>
-                                                <a href="ubahSiswa"><i class="fa fa-edit"
-                                                        style="color:skyblue ;"></i></a>
-                                                <a href=""><i class="fa fa-trash"
-                                                        style="color:color rgb(64, 0, 0) ;"></i></a>
+                                                <a class="btn btn-info" href="/admin/panel/siswa/edit/{{ $s->id }}">edit</a>
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#hapus{{ $s->id }}">Hapus</button>
                                             </td>
                                         </tr>
                                     @endforeach

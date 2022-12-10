@@ -5,6 +5,7 @@ use App\Http\Controllers\MapelController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\RekapController;
+use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
@@ -30,6 +31,7 @@ Route::resource('/admin/panel/mapel',MapelController::class );
 Route::resource('/admin/panel/siswa',SiswaController::class );
 Route::resource('/admin/panel/rekap',RekapController::class );
 Route::resource('/admin/panel/jurusan',JurusanController::class );
+Route::resource('/admin/panel/operator',OperatorController::class );
 
 Route::get('/admin/panel',[DashboardController::class,'index']);
 

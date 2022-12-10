@@ -39,6 +39,13 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/panel/rekap" role="button" aria-expanded="false"
+                            aria-controls="navbar-components">
+                            <i class="fa fa-print text-info"></i>
+                            <span class="nav-link-text">Print Rekap Nilai</span>
+                        </a>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/panel/rekap" role="button" aria-expanded="false"
