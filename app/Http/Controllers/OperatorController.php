@@ -42,24 +42,21 @@ class OperatorController extends Controller
         Request()->validate(
             [
                 'nama'=>'required',
-                'username'=>'required',
-                'password'=>'required',
+                'username'=>'required|unique:users,username',
+                'password'=>'required|min:8',
             ]
         );
 
         $nama = Str::upper(Request()->nama);
         $username = Request()->username;
         $password = Request()->password;
-        $role = Request()->role;
-
-      
 
         // insert data to database
         DB::table('users')->insert([
             'nama'=>$nama,
             'username'=>$username,
-            'password'=>Hash::make('$nama'),
-            'role'=>$role,
+            'password'=>Hash::make($password),
+            'role'=>'operator',
         ]);
 
         return redirect('/admin/panel/operator')->with('alert','Berhasil Menambah Operator');
@@ -97,7 +94,27 @@ class OperatorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+          Request()->validate(
+            [
+                'nama'=>'required',
+                'username'=>'required|unique:users,username,'.$id,
+                'password'=>'required|min:8',
+            ]
+        );
+
+        $nama = Str::upper(Request()->nama);
+        $username = Request()->username;
+        $password = Request()->password;
+
+        // insert data to database
+        DB::table('users')->where('id',$id)->update([
+            'nama'=>$nama,
+            'username'=>$username,
+            'password'=>Hash::make($password),
+        ]);
+
+        return redirect('/admin/panel/operator')->with('alert','Berhasil Mengedit Operator');
+
     }
 
     /**

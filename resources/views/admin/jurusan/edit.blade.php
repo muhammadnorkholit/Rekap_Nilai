@@ -9,8 +9,8 @@
                         <h6 class="h2 text-white d-inline-block mb-0">Siswa</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                <li class="breadcrumb-item"><a href="/dashboard"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="/dashboard">Dashboards</a></li>
+                                <li class="breadcrumb-item"><a href="/admin/panel"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="/admin/panel">Dashboards</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -46,6 +46,9 @@
                                         <input value="{{ $jurusan->jurusan }}" class="form-control"
                                             placeholder="Nama jurusan" name="jurusan" type="text">
                                     </div>
+                                    @error('jurusan')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <button class="btn btn-primary " type="submit">Ubah</button>

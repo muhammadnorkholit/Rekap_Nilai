@@ -111,7 +111,7 @@ class MapelController extends Controller
             'kode_mapel'=>$kode
         ]);
 
-        return redirect('/admin/panel/mapel')->with('alert','Berhasil Menambah Mapel');
+        return redirect('/admin/panel/mapel')->with('alert','Berhasil Mengedit Mapel');
     }
 
     /**

@@ -9,8 +9,8 @@
                         <h6 class="h2 text-white d-inline-block mb-0">Siswa</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                <li class="breadcrumb-item"><a href="/dashboard"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="/dashboard">Dashboards</a></li>
+                                <li class="breadcrumb-item"><a href="/admin/panel"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="/admin/panel">Dashboards</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -45,8 +45,12 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                                 </div>
-                                                <input class="form-control" placeholder="Nama" type="text" name="nama">
+                                                <input class="form-control" placeholder="Nama" type="text"
+                                                    name="nama">
                                             </div>
+                                            @error('nama')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -57,8 +61,12 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                                 </div>
-                                                <input class="form-control" placeholder="Nisn" type="text" name="nisn">
+                                                <input class="form-control" placeholder="Nisn" type="text"
+                                                    name="nisn">
                                             </div>
+                                            @error('nisn')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -69,8 +77,12 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-number"></i></span>
                                                 </div>
-                                                <input class="form-control" placeholder="no peserta" type="text" name="no_peserta">
+                                                <input class="form-control" placeholder="no peserta" type="text"
+                                                    name="no_peserta">
                                             </div>
+                                            @error('no_peserta')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -78,55 +90,72 @@
                                         <h4><b>Kelas</b></h4>
                                         <div class="form-group d-flex m-2 p-2">
                                             <div class="custom-control custom-radio m-1">
-                                                <input name="kelas" class="custom-control-input" id="x" checked type="radio" value="x">
+                                                <input name="kelas" class="custom-control-input" id="x"
+                                                    type="radio" value="x">
                                                 <label class="custom-control-label" for="x">x</label>
                                             </div>
                                             <div class="custom-control custom-radio m-1">
-                                                <input name="kelas" class="custom-control-input" id="xi" type="radio" value="xi">
+                                                <input name="kelas" class="custom-control-input" id="xi"
+                                                    type="radio" value="xi">
                                                 <label class="custom-control-label" for="xi">xi</label>
                                             </div>
                                             <div class="custom-control custom-radio m-1">
-                                                <input name="kelas" class="custom-control-input" id="xii" type="radio" value="xii">
+                                                <input name="kelas" class="custom-control-input" id="xii"
+                                                    type="radio" value="xii">
                                                 <label class="custom-control-label" for="xii">xii</label>
                                             </div>
                                         </div>
+                                        @error('kelas')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="col-md-4">
                                         <h4><b>No kelas</b></h4>
                                         <div class="form-group d-flex m-2 p-2">
                                             <div class="custom-control custom-radio m-1">
-                                                <input name="no_kelas" class="custom-control-input" id="1" checked="" type="radio" value="1">
+                                                <input name="no_kelas" class="custom-control-input" id="1"
+                                                    type="radio" value="1">
                                                 <label class="custom-control-label" for="1">1</label>
                                             </div>
                                             <div class="custom-control custom-radio m-1">
-                                                <input name="no_kelas" class="custom-control-input" id="2" type="radio" value="2">
+                                                <input name="no_kelas" class="custom-control-input" id="2"
+                                                    type="radio" value="2">
                                                 <label class="custom-control-label" for="2">2</label>
                                             </div>
                                             <div class="custom-control custom-radio m-1">
-                                                <input name="no_kelas" class="custom-control-input" id="3" type="radio" value="3">
+                                                <input name="no_kelas" class="custom-control-input" id="3"
+                                                    type="radio" value="3">
                                                 <label class="custom-control-label" for="3">3</label>
                                             </div>
                                             <div class="custom-control custom-radio m-1">
-                                                <input name="no_kelas" class="custom-control-input" id="4" type="radio" value="4">
+                                                <input name="no_kelas" class="custom-control-input" id="4"
+                                                    type="radio" value="4">
                                                 <label class="custom-control-label" for="4">4</label>
                                             </div>
                                         </div>
+                                        @error('no_kelas')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <h4><b>Jurusan</b></h4>
-                                                <select class="form-control" data-toggle="select" name="jurusan">
-                                                    @foreach ($jurusan as $j)
-                                                        <option value="{{ $j->id }}"> {{ $j->jurusan }}</option>
-                                                    @endforeach
-                                                </select>
+                                            <select class="form-control" data-toggle="select" name="jurusan">
+                                                <option value="" holder>Pilih Jurusan</option>
+                                                @foreach ($jurusan as $j)
+                                                    <option value="{{ $j->id }}"> {{ $j->jurusan }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
+                                        @error('jurusan')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
 
-                                <button class="btn btn-primary " type="submit" >Tambah</button>
+                                <button class="btn btn-primary " type="submit">Tambah</button>
 
                             </form>
                         </div>

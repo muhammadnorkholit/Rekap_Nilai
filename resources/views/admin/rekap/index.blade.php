@@ -18,8 +18,8 @@
                         <h6 class="h2 text-white d-inline-block mb-0">Rekap Nilai</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                <li class="breadcrumb-item"><a href="/dashboard"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="/dashboard">Dashboards</a></li>
+                                <li class="breadcrumb-item"><a href="/admin/panel"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="/admin/panel">Dashboards</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -42,8 +42,8 @@
                 <h2 class="text-white">Filter Rekap Nilai </h2>
                 <form class="d-block " action="/admin/panel/rekap" method="get">
                     <div class="row  w-100 align-items-end">
-                        <div class="col-auto p-1 my-2 pr-0">
-                            <label for="">Mapel</label>
+                        <div class="col-3 p-1 my-2 pr-0">
+                            <label class="text-white" for="">Mapel</label>
                             <select name="mapel" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Mapel</option>
                                 @foreach ($mapel as $m)
@@ -51,8 +51,9 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-auto p-1 my-2 pr-0">
-                            <label for="">No Kelas</label>
+                        <div class="col-3 p-1 my-2 pr-0">
+                            <label class="text-white" for="">No Kelas <small>(kosongi jika tidak
+                                    ada)</small></label>
                             <select name="nokelas" class="form-control m-0" id="">
                                 <option value="" holder>Pilih No Kelas</option>
                                 <option value="1">1</option>
@@ -61,8 +62,8 @@
                                 <option value="4">4</option>
                             </select>
                         </div>
-                        <div class="col-auto p-1 my-2 pr-0">
-                            <label for="">Kelas</label>
+                        <div class="col-3 p-1 my-2 pr-0">
+                            <label class="text-white" for="">Kelas</label>
                             <select name="kelas" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Kelas</option>
                                 <option value="X">X</option>
@@ -70,8 +71,8 @@
                                 <option value="XII">XII</option>
                             </select>
                         </div>
-                        <div class="col-auto p-1 my-2 pr-0">
-                            <label for="">Jurusan</label>
+                        <div class="col-3 p-1 my-2 pr-0">
+                            <label class="text-white" for="">Jurusan</label>
                             <select name="jurusan" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Jurusan</option>
                                 @foreach ($jurusan as $j)
@@ -79,7 +80,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-auto p-1 my-2">
+                        <div class="col-3 p-1 my-2">
                             <button name="filter" value="true" class="btn btn-primary m-0">Filter</button>
                         </div>
                     </div>
@@ -94,7 +95,7 @@
                     @csrf
                     <div class="row w-100 align-items-end">
                         <div class="col-lg-4 pr-0">
-                            <label for="">Pilih Mapel</label>
+                            <label class="text-white" for="">Pilih Mapel</label>
                             <select name="mapel" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Mapel</option>
                                 @foreach ($mapel as $m)
@@ -103,7 +104,7 @@
                             </select>
                         </div>
                         <div class="col-auto">
-                            <label for="">Pilih File Nilai</label>
+                            <label class="text-white" for="">Pilih File Nilai</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input   " name="file" id="importfile">
                                 <label for="" class="custom-file-label">Pilih File</label>
@@ -174,9 +175,11 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-info"
-                                                    href="/admin/panel/rekap/edit/{{ $r->id }}">edit</a>
+                                                    href="/admin/panel/rekap/edit/{{ $r->id }}"><i
+                                                        class="fa fa-edit"></i></a>
                                                 <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#hapus{{ $r->id }}">Hapus</button>
+                                                    data-target="#hapus{{ $r->id }}"><i
+                                                        class="fa fa-trash"></i></button>
                                             </td>
                                             <form action="/admin/panel/rekap/{{ $r->id }}" method="POST">
                                                 @method('DELETE')
@@ -207,8 +210,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="submit"
-                                                                    class="btn btn-white">Hapus</button>
+                                                                <button type="submit" class="btn btn-white"><i
+                                                                        class="fa fa-trash"></i></button>
                                                                 <button type="button"
                                                                     class="btn btn-link text-white ml-auto"
                                                                     data-dismiss="modal">Close</button>

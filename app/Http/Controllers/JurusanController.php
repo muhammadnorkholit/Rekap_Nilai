@@ -106,7 +106,7 @@ class JurusanController extends Controller
             'jurusan'=>$jurusan,
         ]);
 
-        return redirect('/admin/panel/jurusan')->with('alert','Berhasil Menambah jurusan');
+        return redirect('/admin/panel/jurusan')->with('alert','Berhasil Mengedit jurusan');
     }
 
     /**

@@ -14,11 +14,25 @@ class SiswaController extends Controller
      */
     public function index()
     {
-     
-        $siswa = DB::table('siswa')
-        ->select('jurusan','siswa.*')
-        ->join('jurusan','siswa.id_jurusan','jurusan.id')->get();
-        return view('admin.siswa.index',compact('siswa'));
+     $siswa = [];
+     if (Request()->has('filter')) {
+        
+         $siswa = DB::table('siswa')
+         ->select('jurusan','siswa.*')
+         ->join('jurusan','siswa.id_jurusan','jurusan.id')
+           ->where('kelas',Request()->kelas)
+            ->where('jurusan',Request()->jurusan)
+            ->orderBy('nama','asc');
+
+            if(Request()->has('nokelas')){
+                $siswa->where('no_kelas',Request()->nokelas);
+            }
+            
+            $siswa = $siswa->get();
+        }
+
+        $jurusan = DB::table('jurusan')->get();
+        return view('admin.siswa.index',compact('siswa','jurusan'));
     }
 
     /**
@@ -91,7 +105,9 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+         $jurusan = DB::table('jurusan')->get();
+         $siswa = DB::table('siswa')->where('id',$id)->first();
+        return view('admin.siswa.edit',compact('jurusan','siswa'));
     }
 
     /**
@@ -103,31 +119,32 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-          Request()->validate([
+       Request()->validate([
             'nama'=>'required',
             'nisn'=>'required|unique:siswa,nisn,'.$id,
             'kelas'=>'required',
             'jurusan'=>'required',
-            'nopeserta'=>'required'
+            'no_kelas'=>'required',
+            'no_peserta'=>'required'
         ]);
-
         $nama = Str::upper(Request()->nama);
+
         $nisn = Request()->nisn;
         $kelas = Request()->kelas;
-        $nokelas = Request()->nokelas;
+        $nokelas = Request()->no_kelas;
         $idJurusan = Request()->jurusan;
-        $nopeserta = Request()->nopeserta;
+        $no_peserta = Request()->no_peserta;
 
 
         DB::table('siswa')->where('id',$id)->update([
-              'nama'=>'required',
-            'nisn'=>'required|unique:siswa,nisn',
-            'kelas'=>'required',
-            'jurusan'=>'required',
+        'nama'=>$nama,
+            'nisn'=>$nisn,
+            'kelas'=>$kelas,
+            'id_jurusan'=>$idJurusan,
             'no_kelas'=>$nokelas,
-            'no_peserta'=>$nopeserta
+            'no_peserta'=>$no_peserta
         ]);
-        return redirect('/siswa')->with('alert','Siswa Berhasil Di Edit');
+        return redirect('/admin/panel/siswa')->with('alert','Siswa Berhasil Diedit');
     }
 
     /**
@@ -139,7 +156,7 @@ class SiswaController extends Controller
     public function destroy($id)
     {
         DB::table('siswa')->where('id',$id)->delete();
-        return redirect('/siswa')->with('alert','Siswa Berhasil Di Hapus');
+        return redirect('/admin/panel/siswa')->with('alert','Siswa Berhasil Di Hapus');
 
     }
 }

@@ -18,8 +18,8 @@
                         <h6 class="h2 text-white d-inline-block mb-0">Rekap Nilai</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                <li class="breadcrumb-item"><a href="/dashboard"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="/dashboard">Dashboards</a></li>
+                                <li class="breadcrumb-item"><a href="/admin/panel"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="/admin/panel">Dashboards</a></li>
                             </ol>
                         </nav>
                     </div>

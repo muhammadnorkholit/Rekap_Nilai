@@ -19,8 +19,8 @@
                         <h6 class="h2 text-white d-inline-block mb-0">Operator</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                <li class="breadcrumb-item"><a href="/dashboard"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="/dashboard">Dashboards</a></li>
+                                <li class="breadcrumb-item"><a href="/admin/panel"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="/admin/panel">Dashboards</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -53,61 +53,67 @@
                                     <th scope="col" class="sort">No</th>
                                     <th scope="col" class="sort">Nama</th>
                                     <th scope="col" class="sort">Username</th>
-                                    <th scope="col" class="sort">Password</th>
                                     <th scope="col" class="sort">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="list">
-                                <?php $no=1 ?>
+                                <?php $no = 1; ?>
                                 @foreach ($operator as $o)
                                     <tr>
                                         <th scope="row">
-                                            {{$no++}}
+                                            {{ $no++ }}
                                         </th>
                                         <td>
                                             {{ $o->nama }}
                                         </td>
                                         <td>
-                                            {{ $o->username}}
+                                            {{ $o->username }}
                                         </td>
+
                                         <td>
-                                            {{ $o->password}}
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-info" href="/admin/panel/operator/edit/{{ $o->id }}">edit</a>
-                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#hapus{{ $o->id }}">Hapus</button>
-                                                
+                                            <a class="btn btn-info" href="/admin/panel/operator/{{ $o->id }}/edit"><i
+                                                    class="fa fa-edit"></i></a>
+                                            <button type="button" class="btn btn-warning" data-toggle="modal"
+                                                data-target="#hapus{{ $o->id }}"><i class="fa fa-trash"></i></button>
+
                                         </td>
 
                                         {{-- delete --}}
                                         <form action="/admin/panel/operator/{{ $o->id }}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                                <div class="modal fade" id="hapus{{ $o->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
-                                                        <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
-                                                        <div class="modal-content bg-gradient-danger">
-                                                            <div class="modal-header">
-                                                            <h6 class="modal-title" id="modal-title-notification">{{ $o->username}}</h6>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <div class="modal fade" id="hapus{{ $o->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+                                                <div class="modal-dialog modal-danger modal-dialog-centered modal-"
+                                                    role="document">
+                                                    <div class="modal-content bg-gradient-danger">
+                                                        <div class="modal-header">
+                                                            <h6 class="modal-title" id="modal-title-notification">
+                                                                {{ $o->username }}</h6>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
                                                                 <span aria-hidden="true">×</span>
                                                             </button>
-                                                            </div>
-                                                            <div class="modal-body">
+                                                        </div>
+                                                        <div class="modal-body">
                                                             <div class="py-3 text-center">
                                                                 <i class="ni ni-bell-55 ni-3x"></i>
-                                                                <h4 class="heading mt-4">Anda yakin akan hapus, {{$o->nama}} ??</h4>
-                                                                <p>Data yang sudah di hapus tidak akan bisa di kembalikan!!</p>
-                                                            </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-white">Hapus</button>
-                                                                <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button>
+                                                                <h4 class="heading mt-4">Anda yakin akan hapus,
+                                                                    {{ $o->nama }} ??</h4>
+                                                                <p>Data yang sudah di hapus tidak akan bisa di kembalikan!!
+                                                                </p>
                                                             </div>
                                                         </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-white">Hapus</button>
+                                                            <button type="button" class="btn btn-link text-white ml-auto"
+                                                                data-dismiss="modal">Close</button>
                                                         </div>
+                                                    </div>
                                                 </div>
+                                            </div>
                                         </form>
-                                            
+
                                         {{-- delete --}}
 
                                     </tr>

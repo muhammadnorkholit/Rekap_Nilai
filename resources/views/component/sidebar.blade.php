@@ -2,8 +2,8 @@
     <div class="scrollbar-inner">
         <!-- Brand -->
         <div class="sidenav-header d-flex align-items-center">
-            <a class="navbar-brand" href="/admin/panel">
-                <img src="{{ asset('assets') }}/img/brand/blue.png" class="navbar-brand-img" alt="...">
+            <a class="navbar-brand " href="/admin/panel" style="font-size: 2.5rem;font-weight:800">
+                Rikep
             </a>
             <div class="ml-auto">
                 <!-- Sidenav toggler -->
@@ -31,13 +31,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin/panel/siswa" role="button" aria-expanded="false"
-                            aria-controls="navbar-examples">
-                            <i class="ni ni-ungroup text-orange"></i>
-                            <span class="nav-link-text">Siswa</span>
-                        </a>
-                    </li>
+
 
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/panel/printRekap" role="button" aria-expanded="false"
