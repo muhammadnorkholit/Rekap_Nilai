@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="{{ asset('assets') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css"
         type="text/css">
     <!-- Page plugins -->
+    <link rel="stylesheet" href="{{ asset('assets') }}/vendor/animate.css/animate.min.css">
+    <link rel="stylesheet" href="{{ asset('assets') }}/vendor/sweetalert2/dist/sweetalert2.min.css">
+
     <!-- Argon CSS -->
     <link rel="stylesheet" href="{{ asset('assets') }}/css/argon.css?v=1.1.0" type="text/css">
 </head>
@@ -78,10 +81,15 @@
     <!-- Optional JS -->
     <script src="{{ asset('assets') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('assets') }}/vendor/chart.js/dist/Chart.extension.js"></script>
+
+    <script src="{{ asset('assets') }}/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="{{ asset('assets') }}/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
     <!-- Argon JS -->
     <script src="{{ asset('assets') }}/js/argon.js?v=1.1.0"></script>
-    <!-- Demo JS - remove this in your project -->
-    <script src="{{ asset('assets') }}/js/demo.min.js"></script>
+
+
+    <!-- Optional JS -->
+    <!-- Argon JS -->
 </body>
 
 </html>

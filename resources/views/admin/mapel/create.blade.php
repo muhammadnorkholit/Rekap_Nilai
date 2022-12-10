@@ -36,13 +36,26 @@
                             <form action="/admin/panel/mapel" method="POST">
                                 @csrf
                                 <!-- Input groups with icon -->
-                                <div class="form-group">
-                                    <h4><b>Nama Mapel</b></h4>
-                                    <div class="input-group input-group-merge">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <h4><b>Nama Mapel</b></h4>
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            </div>
+                                            <input class="form-control" placeholder="Nama Mapel" name="mapel"
+                                                type="text">
                                         </div>
-                                        <input class="form-control" placeholder="Nama Mapel" name="mapel" type="text">
+                                    </div>
+                                    <div class="form-group col">
+                                        <h4><b>Kode Mapel</b></h4>
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-code"></i></span>
+                                            </div>
+                                            <input class="form-control" placeholder="Kode Mapel" name="kode_mapel"
+                                                type="number">
+                                        </div>
                                     </div>
                                 </div>
 

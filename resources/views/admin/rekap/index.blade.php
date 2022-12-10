@@ -119,6 +119,10 @@
                             <a href="/admin/panel/rekap/create" class="btn btn-primary">Tambah data</a>
                             <button data-target="#import" data-toggle="collapse" class="btn btn-primary">Import </button>
 
+
+                            <a href="/admin/panel/rekapExport?jurusan={{ Request()->jurusan }}&kelas={{ Request()->kelas }}&mapel={{ Request()->mapel }}&nokelas={{ Request()->nokelas }}"
+                                class="btn btn-primary">Export </a>
+
                         </div>
                         <div class="table-responsive">
                             <table class="table align-items-center table-dark table-flush">

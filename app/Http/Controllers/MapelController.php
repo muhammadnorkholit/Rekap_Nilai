@@ -40,16 +40,19 @@ class MapelController extends Controller
         Request()->validate(
             [
                 'mapel'=>'required',
+                'kode_mapel'=>'required|unique:mapel,kode_mapel'
             ]
         );
 
         $mapel = Str::upper(Request()->mapel);
+        $kode = Request()->kode_mapel;
 
       
 
         // insert data to database
         DB::table('mapel')->insert([
             'mapel'=>$mapel,
+            'kode_mapel'=>$kode
         ]);
 
         return redirect('/admin/panel/mapel')->with('alert','Berhasil Menambah Mapel');
@@ -90,20 +93,22 @@ class MapelController extends Controller
      */
     public function update(Request $request, $id)
     {
-         Request()->validate(
+        Request()->validate(
             [
                 'mapel'=>'required',
+                'kode_mapel'=>'required|unique:mapel,kode_mapel,'.$id
             ]
         );
 
         $mapel = Str::upper(Request()->mapel);
+        $kode = Request()->kode_mapel;
 
-
-     
+      
 
         // insert data to database
         DB::table('mapel')->where('id',$id)->update([
             'mapel'=>$mapel,
+            'kode_mapel'=>$kode
         ]);
 
         return redirect('/admin/panel/mapel')->with('alert','Berhasil Menambah Mapel');

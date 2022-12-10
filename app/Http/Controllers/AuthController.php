@@ -28,4 +28,12 @@ class AuthController extends Controller
 
         return redirect()->back()->with('alert','User tidak ditemukan');
     }
+
+    public function logout()
+    {
+        Request()->session()->invalidate();
+        Auth::logout();
+
+    return redirect('/auth/login');
+    }
 }
