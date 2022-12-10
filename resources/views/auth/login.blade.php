@@ -39,6 +39,14 @@
 
 <body class="bg-default">
     <!-- Navbar -->
+    <div data-notify="container"
+        class="alert {{ Session::has('alert') ? 'show' : '' }} alert-dismissible alert-danger alert-notify animated fadeInDown"
+        role="alert" data-notify-position="top-center">
+        <span class="alert-icon ni ni-bell-55" data-notify="icon"></span>
+        <div class="alert-text" <="" div=""> <span class="alert-title" data-notify="title"> Pemberitahuan</span>
+            <span data-notify="message">{{ Session::get('alert') }}</span>
+        </div>
+    </div>
     <div class="main-content">
         <!-- Header -->
         <div class="header  bg-gradient-primary ">
@@ -47,15 +55,7 @@
                 <div class="row w-100 justify-content-center">
                     <div class="col-lg-5 col-md-7">
                         <div class="card bg-secondary border-0 mb-0">
-                            <div data-notify="container"
-                                class="alert {{ Session::has('alert') ? 'show' : '' }} alert-dismissible alert-danger alert-notify animated fadeInDown"
-                                role="alert" data-notify-position="top-center">
-                                <span class="alert-icon ni ni-bell-55" data-notify="icon"></span>
-                                <div class="alert-text" <="" div=""> <span class="alert-title"
-                                        data-notify="title"> Pemberitahuan</span>
-                                    <span data-notify="message">{{ Session::get('alert') }}</span>
-                                </div>
-                            </div>
+
                             <div class="card-header
         bg-transparent pt-5">
                                 <h1 class="text-center">Masuk</h1>

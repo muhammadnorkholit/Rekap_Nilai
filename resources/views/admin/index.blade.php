@@ -15,10 +15,7 @@
                             </ol>
                         </nav>
                     </div>
-                    <div class="col-lg-6 col-5 text-right">
-                        <a href="#" class="btn btn-sm btn-neutral">New</a>
-                        <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-                    </div>
+
                 </div>
                 <!-- Card stats -->
                 <div class="row">
@@ -99,7 +96,103 @@
                         </div>
                     </div>
                 </div>
+                {{-- <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row flex-nowrap overflow-hidden">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                <h6 class="surtitle">Peringkat 10 Terbesar</h6>
+                                                <h5 class="h3 mb-0">{{ $rekapX[0]->kelas }} {{ $rekapX[0]->jurusan }}
+                                                    {{ $rekapX[0]->no_kelas }}
+                                                </h5>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart">
+                                            <canvas id="chart-bars" class="chart-canvas"></canvas>
+                                            <div class="d-none" id="data-chart">{{ $rekapX }}</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+
+                                <div class="d-flex justify-content-between">
+                                    <div class="">
+                                        <h6 class="surtitle">Peringkat 10 Terbesar</h6>
+                                        <h5 class="h3 mb-0">{{ $rekapX[0]->kelas }} {{ $rekapX[0]->jurusan }}
+                                            {{ $rekapX[0]->no_kelas }}
+                                        </h5>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart">
+                                    <canvas id="chart-bars-2" class="chart-canvas"></canvas>
+                                    <div class="d-none" id="data-chart-2">{{ $rekapX }}</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+
+                                <div class="d-flex justify-content-between">
+                                    <div class="">
+                                        <h6 class="surtitle">Peringkat 10 Terbesar</h6>
+                                        <h5 class="h3 mb-0">{{ $rekapX[0]->kelas }} {{ $rekapX[0]->jurusan }}
+                                            {{ $rekapX[0]->no_kelas }}
+                                        </h5>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart">
+                                    <canvas id="chart-bars-2" class="chart-canvas"></canvas>
+                                    <div class="d-none" id="data-chart-2">{{ $rekapX }}</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
             </div>
         </div>
+
+        {{-- message section --}}
+        <div class=" position-fixed right-0 bottom-0 w-25">
+            <button data-toggle="collapse" data-target="#message"
+                onclick="console.log(this.classList.toggle('ni-bold-up'),this.classList.toggle('ni-bold-down'))"
+                class="ni ni-bold-up btn btn-success mb-3 position-absolute right-25"
+                style="top: -2.4rem;z-index:9999"></button>
+            <div id="message" class="card  m-0  collapse navbar-collapse  p-4 border-0 rounded-0">
+                <div class=" p-0 card-header d-flex justify-content-between align-items-center">
+                    <h2>Pemberitahuan</h2>
+
+                </div>
+                <div class="card-body p-0">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, facere odio consequatur assumenda
+                    placeat
+                    tempora sit totam aut, voluptates, sint ipsum inventore culpa omnis eveniet! Veniam esse eveniet alias
+                    cupiditate!
+                </div>
+            </div>
+        </div>
+
+
     </div>
 @endsection

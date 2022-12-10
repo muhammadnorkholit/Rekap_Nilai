@@ -2,7 +2,6 @@
 
 namespace App\Imports;
 
-use App\Models\rekap;
 use Maatwebsite\Excel\Concerns\ToModel;
 use DB;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;

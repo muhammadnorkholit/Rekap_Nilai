@@ -2,60 +2,67 @@
 // Charts
 //
 
-'use strict';
+"use strict";
 
 //
 // Points chart
 //
 
-var PointsChart = (function() {
+var PointsChart = (function () {
+    // Variables
 
-	// Variables
+    // var $chart = $("#chart-points");
+    let data = $("#dataChart");
 
-	var $chart = $('#chart-points');
+    // Methods
 
+    function init($this) {
+        var salesChart = new Chart($this, {
+            type: "line",
+            options: {
+                scales: {
+                    yAxes: [
+                        {
+                            gridLines: {
+                                color: Charts.colors.gray[200],
+                                zeroLineColor: Charts.colors.gray[200],
+                            },
+                            ticks: {},
+                        },
+                    ],
+                },
+            },
+            data: {
+                labels: [
+                    "Abyu",
+                    "Andi",
+                    "Ridwan",
+                    "Samdusin",
+                    "Sep",
+                    "Oct",
+                    "Nov",
+                    "Dec",
+                ],
+                datasets: [
+                    {
+                        label: "Performance",
+                        data: [10, 18, 28, 23, 28, 40, 36, 46, 52],
+                        pointRadius: 10,
+                        pointHoverRadius: 15,
+                        showLine: false,
+                    },
+                ],
+            },
+        });
 
-	// Methods
+        // Save to jQuery object
 
-	function init($this) {
-		var salesChart = new Chart($this, {
-			type: 'line',
-			options: {
-				scales: {
-					yAxes: [{
-						gridLines: {
-							color: Charts.colors.gray[200],
-							zeroLineColor: Charts.colors.gray[200]
-						},
-						ticks: {
+        $this.data("chart", salesChart);
+    }
 
-						}
-					}]
-				}
-			},
-			data: {
-				labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-				datasets: [{
-					label: 'Performance',
-					data: [10, 18, 28, 23, 28, 40, 36, 46, 52],
-					pointRadius: 10,
-					pointHoverRadius: 15,
-					showLine: false
-				}]
-			}
-		});
+    // Events
 
-		// Save to jQuery object
-
-		$this.data('chart', salesChart);
-
-	};
-
-
-	// Events
-
-	if ($chart.length) {
-		init($chart);
-	}
-
+    if ($chart.length) {
+        init($chart);
+    }
 })();

@@ -20,14 +20,17 @@ class RekapController extends Controller
             ->where('kelas',Request()->kelas)
             ->where('mapel',Request()->mapel)
             ->where('jurusan',Request()->jurusan)
-            ->orderBy('nama','asc')
-            ->simplePaginate(20);
+            ->orderBy('nama','asc');
 
             if(Request()->has('nokelas')){
-                $rekap ->where('no_kelas',Request()->nokelas);
+                $rekap->where('no_kelas',Request()->nokelas);
             }
+            $rekap = $rekap->simplePaginate(20);
+
         }
 
+            
+        
         $mapel = DB::table('mapel')->get();
         $jurusan = DB::table('jurusan')->get();
         return view('admin.rekap.index',compact('rekap','mapel','jurusan'));

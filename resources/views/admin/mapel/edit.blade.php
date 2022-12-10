@@ -27,7 +27,7 @@
                     <div class="card">
                         <!-- Card header -->
                         <div class="card-header">
-                            <h3 class="mb-0">Tambah Mapel</h3>
+                            <h3 class="mb-0">Edit Mapel</h3>
                         </div>
                         <!-- Card body -->
                         <div class="card-body">
@@ -37,14 +37,26 @@
                                 @method('PUT')
                                 @csrf
                                 <!-- Input groups with icon -->
-                                <div class="form-group">
-                                    <h4><b>Nama Mapel</b></h4>
-                                    <div class="input-group input-group-merge">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <h4><b>Nama Mapel</b></h4>
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            </div>
+                                            <input value="{{ $mapel->mapel }}" class="form-control" placeholder="Nama Mapel"
+                                                name="mapel" type="text">
                                         </div>
-                                        <input value="{{ $mapel->mapel }}" class="form-control" placeholder="Nama Mapel"
-                                            name="mapel" type="text">
+                                    </div>
+                                    <div class="form-group col">
+                                        <h4><b>Kode Mapel</b></h4>
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-code"></i></span>
+                                            </div>
+                                            <input value="{{ $mapel->kode_mapel }}" class="form-control"
+                                                placeholder="Kode Mapel" name="kode_mapel" type="text">
+                                        </div>
                                     </div>
                                 </div>
 

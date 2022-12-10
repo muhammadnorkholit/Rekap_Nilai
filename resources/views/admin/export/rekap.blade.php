@@ -11,10 +11,21 @@
 <body>
 
     <table>
+        <tr>
+            <th colspan="8">
+                <h1 class="fw-bold">
+                    REKAP_NILAI <br>
+                    PAS GANJIL {{ $rekap[0]->kelas }} {{ $rekap[0]->jurusan }} {{ $rekap[0]->no_kelas }}
+                </h1>
+            </th>
+
+        </tr>
+    </table>
+    <table>
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama Siswa</th>
+                <th style="min-width: 200px">Nama Siswa</th>
                 <th>No Peserta</th>
                 <th>Kelas</th>
                 <th>Mapel</th>
@@ -29,7 +40,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $r->nama }}</td>
                     <td>{{ $r->no_peserta }}</td>
-                    <td>{{ $r->kelas }}</td>
+                    <td>{{ $r->kelas }} {{ $r->jurusan }} {{ $r->no_kelas }}</td>
                     <td>{{ $r->mapel }}</td>
                     <td>{{ $r->total_jawaban_B }}</td>
                     <td>{{ $r->total_jawaban_S }}</td>

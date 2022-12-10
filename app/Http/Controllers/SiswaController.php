@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Str;
 class SiswaController extends Controller
 {
     /**
@@ -49,8 +50,8 @@ class SiswaController extends Controller
             'no_kelas'=>'required',
             'no_peserta'=>'required'
         ]);
+        $nama = Str::upper(Request()->nama);
 
-        $nama = Request()->nama;
         $nisn = Request()->nisn;
         $kelas = Request()->kelas;
         $nokelas = Request()->no_kelas;
@@ -110,7 +111,7 @@ class SiswaController extends Controller
             'nopeserta'=>'required'
         ]);
 
-        $nama = Request()->nama;
+        $nama = Str::upper(Request()->nama);
         $nisn = Request()->nisn;
         $kelas = Request()->kelas;
         $nokelas = Request()->nokelas;

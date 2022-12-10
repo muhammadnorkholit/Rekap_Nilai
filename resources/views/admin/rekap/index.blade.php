@@ -29,12 +29,20 @@
     </div>
 
     <div class="container-fluid mt--6">
-        <div class="card bg-default shadow ">
+        <div class="d-flex justify-content-end">
+            <button data-target="#import" data-toggle="collapse" class="btn btn-success mb-2    ">Import </button>
+            @if (Request()->has('filter'))
+                <button data-target="#filter" data-toggle="collapse" class="btn btn-success mb-2">Filter </button>
+            @endif
+        </div>
+
+        <div class="card bg-default shadow collapse navbar-collapse {{ Request()->filter && count($rekap) > 0 ? '' : 'show' }} "
+            id="filter">
             <div class="card-header  bg-transparent border-0">
                 <h2 class="text-white">Filter Rekap Nilai </h2>
                 <form class="d-block " action="/admin/panel/rekap" method="get">
                     <div class="row  w-100 align-items-end">
-                        <div class="col-auto my-2 pr-0">
+                        <div class="col-auto p-1 my-2 pr-0">
                             <label for="">Mapel</label>
                             <select name="mapel" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Mapel</option>
@@ -43,7 +51,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-auto my-2 pr-0">
+                        <div class="col-auto p-1 my-2 pr-0">
                             <label for="">No Kelas</label>
                             <select name="nokelas" class="form-control m-0" id="">
                                 <option value="" holder>Pilih No Kelas</option>
@@ -53,7 +61,7 @@
                                 <option value="4">4</option>
                             </select>
                         </div>
-                        <div class="col-auto my-2 pr-0">
+                        <div class="col-auto p-1 my-2 pr-0">
                             <label for="">Kelas</label>
                             <select name="kelas" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Kelas</option>
@@ -62,16 +70,16 @@
                                 <option value="XII">XII</option>
                             </select>
                         </div>
-                        <div class="col-auto my-2 pr-0">
+                        <div class="col-auto p-1 my-2 pr-0">
                             <label for="">Jurusan</label>
                             <select name="jurusan" class="form-control m-0" id="">
-                                <option value="" holder>Pilih Kelas</option>
+                                <option value="" holder>Pilih Jurusan</option>
                                 @foreach ($jurusan as $j)
                                     <option value="{{ $j->jurusan }}">{{ $j->jurusan }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-auto my-2">
+                        <div class="col-auto p-1 my-2">
                             <button name="filter" value="true" class="btn btn-primary m-0">Filter</button>
                         </div>
                     </div>
@@ -79,8 +87,7 @@
             </div>
         </div>
 
-        <div class="card bg-default shadow collapse align-items-start navbar-collapse {{ Request()->filter ? '' : 'show' }}"
-            id="import">
+        <div class="card bg-default shadow collapse align-items-start navbar-collapse   " id="import">
             <div class="card-header  bg-transparent border-0">
                 <h2 class="text-white">Filter Import</h2>
                 <form class="d-block " action="/admin/panel/rekapImport" enctype="multipart/form-data" method="post">
@@ -117,7 +124,6 @@
                     <div class="card bg-default shadow">
                         <div class="card-header bg-transparent border-0">
                             <a href="/admin/panel/rekap/create" class="btn btn-primary">Tambah data</a>
-                            <button data-target="#import" data-toggle="collapse" class="btn btn-primary">Import </button>
 
 
                             <a href="/admin/panel/rekapExport?jurusan={{ Request()->jurusan }}&kelas={{ Request()->kelas }}&mapel={{ Request()->mapel }}&nokelas={{ Request()->nokelas }}"
