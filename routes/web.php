@@ -6,6 +6,7 @@ use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\RekapController;
+use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
@@ -29,11 +30,20 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+<<<<<<< HEAD
+    
+Route::resource('/admin/panel/mapel',MapelController::class );
+Route::resource('/admin/panel/siswa',SiswaController::class );
+Route::resource('/admin/panel/rekap',RekapController::class );
+Route::resource('/admin/panel/jurusan',JurusanController::class );
+Route::resource('/admin/panel/operator',OperatorController::class );
+=======
     Route::get('/logout',[AuthController::class,'logout']);
     Route::resource('/admin/panel/mapel',MapelController::class );
     Route::resource('/admin/panel/siswa',SiswaController::class );
     Route::resource('/admin/panel/rekap',RekapController::class );
     Route::resource('/admin/panel/jurusan',JurusanController::class );
+>>>>>>> 9fd4b16bc9befcddf6a3f76829af972f12655e15
 
     Route::get('/admin/panel',[DashboardController::class,'index']);
 

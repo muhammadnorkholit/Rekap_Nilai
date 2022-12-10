@@ -32,6 +32,25 @@
                     </li>
 
                     <li class="nav-item">
+<<<<<<< HEAD
+                        <a class="nav-link" href="/admin/panel/siswa" role="button" aria-expanded="false"
+                            aria-controls="navbar-examples">
+                            <i class="ni ni-ungroup text-orange"></i>
+                            <span class="nav-link-text">Siswa</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/panel/rekap" role="button" aria-expanded="false"
+                            aria-controls="navbar-components">
+                            <i class="fa fa-print text-info"></i>
+                            <span class="nav-link-text">Print Rekap Nilai</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+=======
+>>>>>>> 9fd4b16bc9befcddf6a3f76829af972f12655e15
                         <a class="nav-link" href="/admin/panel/rekap" role="button" aria-expanded="false"
                             aria-controls="navbar-components">
                             <i class="ni ni-book-bookmark text-info"></i>
