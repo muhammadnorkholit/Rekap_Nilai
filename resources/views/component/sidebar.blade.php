@@ -32,43 +32,46 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/panel/siswa" role="button" aria-expanded="false"
-                            aria-controls="navbar-examples">
-                            <i class="ni ni-ungroup text-orange"></i>
-                            <span class="nav-link-text">Siswa</span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-item">
                         <a class="nav-link" href="/admin/panel/rekap" role="button" aria-expanded="false"
                             aria-controls="navbar-components">
                             <i class="ni ni-book-bookmark text-info"></i>
                             <span class="nav-link-text">Rekap Nilai</span>
                         </a>
                     </li>
+                    @if (auth()->user()->role == 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/panel/siswa" role="button" aria-expanded="false"
+                                aria-controls="navbar-examples">
+                                <i class="ni ni-ungroup text-orange"></i>
+                                <span class="nav-link-text">Siswa</span>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin/panel/mapel" role="button" aria-expanded="false"
-                            aria-controls="navbar-components">
-                            <i class="ni ni-books text-info"></i>
-                            <span class="nav-link-text">Mapel</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin/panel/jurusan" role="button" aria-expanded="false"
-                            aria-controls="navbar-components">
-                            <i class="ni ni-atom text-info"></i>
-                            <span class="nav-link-text">Jurusan</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin/panel/operator" role="button" aria-expanded="false"
-                            aria-controls="navbar-components">
-                            <i class="ni ni-settings text-info"></i>
-                            <span class="nav-link-text">Operator</span>
-                        </a>
-                    </li>
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/panel/mapel" role="button" aria-expanded="false"
+                                aria-controls="navbar-components">
+                                <i class="ni ni-books text-info"></i>
+                                <span class="nav-link-text">Mapel</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/panel/jurusan" role="button" aria-expanded="false"
+                                aria-controls="navbar-components">
+                                <i class="ni ni-atom text-info"></i>
+                                <span class="nav-link-text">Jurusan</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/panel/operator" role="button" aria-expanded="false"
+                                aria-controls="navbar-components">
+                                <i class="ni ni-settings text-info"></i>
+                                <span class="nav-link-text">Operator</span>
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
