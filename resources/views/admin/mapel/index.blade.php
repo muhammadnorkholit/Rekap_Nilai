@@ -52,7 +52,7 @@
                                 <tr>
                                     <th scope="col" class="sort">No</th>
                                     <th scope="col" class="sort">Nama Mapel</th>
-                                    {{-- <th scope="col" class="sort">Kode Mapel</th> --}}
+                                    <th scope="col" class="sort">Kode Mapel</th>
                                     <th scope="col" class="sort">Action</th>
                                 </tr>
                             </thead>
@@ -65,9 +65,9 @@
                                         <td>
                                             {{ $m->mapel }}
                                         </td>
-                                        {{-- <td>
+                                        <td>
                                             {{ $m->kode_mapel }}
-                                        </td> --}}
+                                        </td>
                                         <td>
                                             <a class="btn btn-info" href="/admin/panel/mapel/{{ $m->id }}/edit"><i
                                                     class="fa fa-edit"></i></a>

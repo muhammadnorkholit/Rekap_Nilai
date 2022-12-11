@@ -30,34 +30,26 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-// <<<<<<< HEAD
     
 Route::resource('/admin/panel/mapel',MapelController::class );
 Route::resource('/admin/panel/siswa',SiswaController::class );
 Route::resource('/admin/panel/rekap',RekapController::class );
 Route::resource('/admin/panel/jurusan',JurusanController::class );
 Route::resource('/admin/panel/operator',OperatorController::class );
-// =======
-//     Route::get('/logout',[AuthController::class,'logout']);
-//     Route::resource('/admin/panel/mapel',MapelController::class );
-//     Route::resource('/admin/panel/siswa',SiswaController::class );
-//     Route::resource('/admin/panel/rekap',RekapController::class );
-//     Route::resource('/admin/panel/jurusan',JurusanController::class );
-// >>>>>>> 9fd4b16bc9befcddf6a3f76829af972f12655e15
+Route::get('/logout',[AuthController::class,'logout']);
 
-    Route::get('/admin/panel',[DashboardController::class,'index']);
-    Route::get('/admin/panel/printRekap',[RekapController::class,'print']);
+Route::get('/admin/panel',[DashboardController::class,'index']);
+Route::get('/admin/panel/printRekap',[RekapController::class,'print']);
 
-    Route::post('/admin/panel/rekapImport',[ImportController::class,'importRekap']);
-    Route::post('/admin/panel/mapelImport',[ImportController::class,'importMapel']);
-    Route::post('/admin/panel/jurusanImport',[ImportController::class,'importJurusan']);
+Route::post('/admin/panel/rekapImport',[ImportController::class,'importRekap']);
+Route::post('/admin/panel/mapelImport',[ImportController::class,'importMapel']);
+Route::post('/admin/panel/jurusanImport',[ImportController::class,'importJurusan']);
 
-    Route::post('/admin/panel/siswaImport',[ImportController::class,'importSiswa']);
-    Route::post('/admin/panel/rekapImport',[ImportController::class,'importRekap']);
-    Route::post('/admin/panel/siswaImport',[ImportController::class,'importSiswa']);
+Route::post('/admin/panel/siswaImport',[ImportController::class,'importSiswa']);
+Route::post('/admin/panel/rekapImport',[ImportController::class,'importRekap']);
+Route::post('/admin/panel/siswaImport',[ImportController::class,'importSiswa']);
 
-
-    Route::get('/admin/panel/rekapExport',[ExportController::class,'exportRekap']);
+Route::get('/admin/panel/rekapExport',[ExportController::class,'exportRekap']);
 
 });
 

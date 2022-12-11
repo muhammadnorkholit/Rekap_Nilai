@@ -5,6 +5,7 @@ namespace App\Imports;
 use App\Models\jurusan;
 use Maatwebsite\Excel\Concerns\ToModel;
 use DB;
+use Str;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class JurusanImport implements ToModel,WithHeadingRow
@@ -20,7 +21,7 @@ class JurusanImport implements ToModel,WithHeadingRow
         if($count >0)return;
         
         DB::table('jurusan')->insert([
-            'jurusan'=>$row['jurusan']
+            'jurusan'=>Str::upper($row['jurusan'])
         ]);
     }
 }

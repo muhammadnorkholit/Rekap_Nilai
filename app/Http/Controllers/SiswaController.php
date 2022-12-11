@@ -159,7 +159,7 @@ class SiswaController extends Controller
     public function destroy($id)
     {
         DB::table('siswa')->where('id',$id)->delete();
-        return redirect('/admin/panel/siswa')->with('alert','Siswa Berhasil Di Hapus');
+        return redirect()->back()->with('alert','Siswa Berhasil Di Hapus');
 
     }
 }
