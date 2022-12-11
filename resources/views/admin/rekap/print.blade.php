@@ -37,7 +37,7 @@
                 <h2 class="text-white">Print Rekap Nilai </h2>
                 <form class="d-block " action="/admin/panel/rekapExport" method="get">
                     <div class="row  w-100 align-items-end">
-                        <div class="col-auto p-1 my-2 pr-0">
+                        <div class="col-3 p-1 my-2 pr-0">
                             <label for="">Mapel</label>
                             <select name="mapel" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Mapel</option>
@@ -46,7 +46,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-auto p-1 my-2 pr-0">
+                        <div class="col-3 p-1 my-2 pr-0">
                             <label for="">No Kelas</label>
                             <select name="nokelas" class="form-control m-0" id="">
                                 <option value="" holder>Pilih No Kelas</option>
@@ -56,7 +56,7 @@
                                 <option value="4">4</option>
                             </select>
                         </div>
-                        <div class="col-auto p-1 my-2 pr-0">
+                        <div class="col-3 p-1 my-2 pr-0">
                             <label for="">Kelas</label>
                             <select name="kelas" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Kelas</option>
@@ -65,7 +65,7 @@
                                 <option value="XII">XII</option>
                             </select>
                         </div>
-                        <div class="col-auto p-1 my-2 pr-0">
+                        <div class="col-3 p-1 my-2 pr-0">
                             <label for="">Jurusan</label>
                             <select name="jurusan" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Jurusan</option>

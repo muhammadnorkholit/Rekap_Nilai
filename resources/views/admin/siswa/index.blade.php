@@ -85,11 +85,11 @@
                         method="post">
                         @csrf
                         <input type="file" name="file" onchange="form.submit()" class="d-none" id="import">
-                        <label class="text-white" for="import" class="m-0 btn btn-primary">Import</label>
+                        <label for="import" class="text-white m-0 btn btn-primary mr-1">Import</label>
                     </form>
                     <form class="d-inline-block" action="/admin/panel/siswa/export" method="post">
                         <button type="submit" class="btn btn-primary">Export
-                            Siswa</button>
+                        </button>
                     </form>
                 </div>
                 <div class="table-responsive">

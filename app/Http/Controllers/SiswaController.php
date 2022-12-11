@@ -29,6 +29,9 @@ class SiswaController extends Controller
             }
             
             $siswa = $siswa->get();
+              if(count($siswa) == 0){
+                return redirect()->back()->with('alert','Data siswa tidak ditemukan');
+            }
         }
 
         $jurusan = DB::table('jurusan')->get();

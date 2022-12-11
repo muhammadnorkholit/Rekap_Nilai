@@ -27,6 +27,11 @@ class RekapController extends Controller
             }
             $rekap = $rekap->simplePaginate(20);
 
+
+            if(count($rekap) == 0){
+                return redirect()->back()->with('alert','Data rekap tidak ditemukan');
+            }
+
         }
 
             

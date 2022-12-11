@@ -24,14 +24,14 @@
     <table border="1">
         <thead>
             <tr>
-                <th>No</th>
-                <th style="min-width: 200px">Nama Siswa</th>
-                <th>No Peserta</th>
-                <th>Kelas</th>
-                <th>Mapel</th>
-                <th>B</th>
-                <th>S</th>
-                <th>Skor</th>
+                <th><b style="text-transform: uppercase"> No</b></th>
+                <th style="min-width: 200px"><b style="text-transform: uppercase"> NAMA SISWA</b></th>
+                <th><b style="text-transform: uppercase"> NO PESERTA</b></th>
+                <th><b style="text-transform: uppercase"> KELAS</b></th>
+                <th><b style="text-transform: uppercase"> MAPEL</b></th>
+                <th><b style="text-transform: uppercase"> B</b></th>
+                <th><b style="text-transform: uppercase"> S</b></th>
+                <th><b style="text-transform: uppercase"> SKOR</b></th>
             </tr>
         </thead>
         <tbody>
