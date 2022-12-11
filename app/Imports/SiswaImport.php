@@ -14,8 +14,9 @@ class SiswaImport implements ToModel,WithHeadingRow
     */
     public function model(array $row)
     {
-        
         $idJurusan = DB::table('jurusan')->where('jurusan',$row['jurusan'])->first();
+        
+        if($idJurusan == null)dd($row['jurusan']);
         $nama = $row['nama']; 
         $nisn = $row['nisn']; 
         $no = $row['no_peserta']; 

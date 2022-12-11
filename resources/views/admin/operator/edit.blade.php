@@ -46,7 +46,7 @@
                                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                                 </div>
                                                 <input value="{{ $operator->nama }}" class="form-control"
-                                                    placeholder="Nama Mapel" name="nama" type="text">
+                                                    placeholder="Nama Operator" name="nama" type="text">
                                             </div>
                                             @error('nama')
                                                 <small class="text-danger">{{ $message }}</small>

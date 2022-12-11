@@ -44,7 +44,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                                 </div>
-                                                <input class="form-control" placeholder="Nama Mapel" name="nama"
+                                                <input class="form-control" placeholder="Nama Operator" name="nama"
                                                     type="text">
                                             </div>
                                             @error('nama')
