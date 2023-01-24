@@ -16,11 +16,12 @@ class SiswaController extends Controller
     {
      $siswa = [];
      if (Request()->has('filter')) {
-        
+        // dd(request());
          $siswa = DB::table('siswa')
          ->select('jurusan','siswa.*')
          ->join('jurusan','siswa.id_jurusan','jurusan.id')
            ->where('kelas',Request()->kelas)
+           ->where('no_kelas',Request()->nokelas)
             ->where('jurusan',Request()->jurusan)
             ->orderBy('nama','asc');
 

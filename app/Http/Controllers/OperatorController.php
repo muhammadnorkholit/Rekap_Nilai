@@ -98,19 +98,16 @@ class OperatorController extends Controller
             [
                 'nama'=>'required',
                 'username'=>'required|unique:users,username,'.$id,
-                'password'=>'required|min:8',
             ]
         );
 
         $nama = Str::upper(Request()->nama);
         $username = Request()->username;
-        $password = Request()->password;
 
         // insert data to database
         DB::table('users')->where('id',$id)->update([
             'nama'=>$nama,
             'username'=>$username,
-            'password'=>Hash::make($password),
         ]);
 
         return redirect('/admin/panel/operator')->with('alert','Berhasil Mengedit Operator');

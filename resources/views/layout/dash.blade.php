@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
     <meta name="author" content="Creative Tim">
-    <title>R </title>
+    <title>REKAP NILAI </title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
@@ -90,12 +90,12 @@
 
 
     <script>
-        const alert = document.querySelector('.alert');
+        const alert = document.querySelector('.alert-notify');
 
         if (alert.classList.contains('show')) {
             setTimeout(() => {
                 alert.classList.remove('show')
-            }, 4000);
+            }, 8000);
         }
     </script>
 

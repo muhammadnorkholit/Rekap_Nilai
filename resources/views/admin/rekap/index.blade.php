@@ -6,7 +6,7 @@
         role="alert" data-notify-position="top-center">
         <span class="alert-icon ni ni-bell-55" data-notify="icon"></span>
         <div class="alert-text" <="" div=""> <span class="alert-title" data-notify="title"> Pemberitahuan</span>
-            <span data-notify="message">{{ Session::get('alert') }}</span>
+            <span data-notify="message">{!! Session::get('alert') !!}</span>
         </div>
     </div>
 
@@ -26,7 +26,15 @@
                 </div>
             </div>
         </div>
+        <div class="" style="width: 80%; margin:auto; border-radius:30px; text-align:center; ">
+            @if (Session::has('alert2'))
+                <div class=" alert alert-success">
+                    {!! Session::get('alert2') !!}
+                </div>
+            @endif
+        </div>
     </div>
+
 
     <div class="container-fluid mt--6">
         <div class="d-flex justify-content-end">
@@ -52,31 +60,12 @@
                             </select>
                         </div>
                         <div class="col-3 p-1 my-2 pr-0">
-                            <label class="text-white" for="">No Kelas <small>(kosongi jika tidak
-                                    ada)</small></label>
-                            <select name="nokelas" class="form-control m-0" id="">
-                                <option value="" holder>Pilih No Kelas</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </div>
-                        <div class="col-3 p-1 my-2 pr-0">
-                            <label class="text-white" for="">Kelas</label>
-                            <select name="kelas" class="form-control m-0" id="">
+                            <label class="text-white" for="">kelas Siswa</label>
+                            <select name="id" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Kelas</option>
-                                <option value="X">X</option>
-                                <option value="XI">XI</option>
-                                <option value="XII">XII</option>
-                            </select>
-                        </div>
-                        <div class="col-3 p-1 my-2 pr-0">
-                            <label class="text-white" for="">Jurusan</label>
-                            <select name="jurusan" class="form-control m-0" id="">
-                                <option value="" holder>Pilih Jurusan</option>
-                                @foreach ($jurusan as $j)
-                                    <option value="{{ $j->jurusan }}">{{ $j->jurusan }}</option>
+                                @foreach ($siswa as $j)
+                                    <option value="{{ $j->id }}">{{ $j->kelas }} {{ $j->jurusan }}
+                                        {{ $j->no_kelas }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -173,7 +162,7 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-info"
-                                                    href="/admin/panel/rekap/edit/{{ $r->id }}"><i
+                                                    href="/admin/panel/rekap/{{ $r->id }}/edit"><i
                                                         class="fa fa-edit"></i></a>
                                                 <button type="button" class="btn btn-warning" data-toggle="modal"
                                                     data-target="#hapus{{ $r->id }}"><i
@@ -225,7 +214,6 @@
                         </div>
                         <div class="m-3 text-right">
                             <hr class="border-white ">
-                            {{ $rekap->links() }}
 
 
                         </div>

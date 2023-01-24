@@ -24,6 +24,9 @@ class RekapExport  implements FromView
 
             $rekap = $rekap->get();
 
+          
+
+
         return  view('admin.export.rekap', compact('rekap'));
     }
 }

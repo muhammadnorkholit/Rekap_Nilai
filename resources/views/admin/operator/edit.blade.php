@@ -38,7 +38,7 @@
                                 @csrf
                                 <!-- Input groups with icon -->
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <h4><b>Nama</b></h4>
                                             <div class="input-group input-group-merge">
@@ -53,9 +53,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
 
                                         <div class="form-group">
                                             <h4><b>Username</b></h4>
@@ -72,21 +70,6 @@
 
                                         </div>
 
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <h4><b>Password</b></h4>
-                                            <div class="input-group input-group-merge">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                                </div>
-                                                <input value="{{ $operator->password }}" class="form-control"
-                                                    placeholder="password" name="password" type="text">
-                                            </div>
-                                            @error('mapel')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
                                     </div>
                                 </div>
                                 <button class="btn btn-primary " type="submit">Ubah</button>

@@ -24,7 +24,6 @@ class MapelImport implements ToModel,WithHeadingRow
             $this->no++;
         if(count($row) == 0)return;
         if($row['kode_mapel'] == null|| $row['mapel'] == null)return;
-        // dd($row);
         $count = DB::table('mapel')->where('mapel',$row['mapel'])->count();
 
         if($count > 0)return;

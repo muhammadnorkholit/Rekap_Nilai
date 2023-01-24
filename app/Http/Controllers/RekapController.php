@@ -16,16 +16,13 @@ class RekapController extends Controller
         $rekap = [];
 
         if(Request()->has('filter')){
-            $rekap = DB::table('data_rekap')
-            ->where('kelas',Request()->kelas)
-            ->where('mapel',Request()->mapel)
-            ->where('jurusan',Request()->jurusan)
-            ->orderBy('nama','asc');
-
-            if(Request()->has('nokelas')){
-                $rekap->where('no_kelas',Request()->nokelas);
-            }
-            $rekap = $rekap->simplePaginate(20);
+              $siswa = DB::table('siswa')->join("jurusan","siswa.id_jurusan","jurusan.id")->where("siswa.id",Request()->id)->first();
+        $rekap = DB::table('data_rekap')
+        ->where('kelas',$siswa->kelas)
+        ->where('mapel',Request()->mapel)
+        ->where('jurusan',$siswa->jurusan)
+        ->orderBy('nama','asc')->get();
+      
 
 
             if(count($rekap) == 0){
@@ -38,7 +35,8 @@ class RekapController extends Controller
         
         $mapel = DB::table('mapel')->get();
         $jurusan = DB::table('jurusan')->get();
-        return view('admin.rekap.index',compact('rekap','mapel','jurusan'));
+        $siswa = DB::table('siswa')->select("kelas","no_kelas","jurusan","siswa.id")->join("jurusan","siswa.id_jurusan","jurusan.id")->groupBy("id_jurusan")->groupBy("kelas")->groupBy("no_kelas")->get();
+        return view('admin.rekap.index',compact('rekap','mapel','jurusan',"siswa"));
     }
 
     /**
@@ -61,7 +59,7 @@ class RekapController extends Controller
             if(Request()->has('nokelas')){
                 $rekap->where('no_kelas',Request()->nokelas);
             }
-            $rekap = $rekap->simplePaginate(20);
+            $rekap = $rekap->get();
 
         }
 

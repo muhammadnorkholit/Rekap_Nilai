@@ -14,32 +14,62 @@ class RekapImport implements ToModel,WithHeadingRow
     * @return \Illuminate\Database\Eloquent\Model|null
     */
 
-   public function __construct($idMapel) {
-    $this->idmapel = $idMapel;
-   }
+    private $totalRows = 0;
+    private $totalRowsFail = 0;
+    private $totalRowsSuccess = 0;
+    private $message = "";
 
     public function model(array $row)
     {
-
-         $mapel = DB::table('mapel')->where('id',$this->idmapel)->first();
+        $this->totalRows++;
+     
+        if(!array_key_exists('skor',$row)){
+            $this->message = "Format Excel Tidak Sesuai";
+            return;
+        }
+        if(( $row['skor'] == null)){
+            $this->totalRowsFail++;
+            return ;
+        }
+        $mapel = DB::table('mapel')->where('id',Request()->mapel)->first();
         $siswa = DB::table('siswa')->where('no_peserta',$row['no_peserta'])->first();
         $count = DB::table('data_rekap')
-        ->where('mapel',$mapel)
+        ->where('mapel',$mapel->mapel)
         ->where('no_peserta',$row['no_peserta'])
         ->whereMonth('tgl_rekap',date('m'))
         ->count();
 
         if($count > 0)return;
+      
         $nilaiB  = $row['b'];
         $nilaiS  = $row['s'];
-        $rata  = $row['Skor'];
-
-        DB::table('rekap')->insert([
-            'id_mapel'=>$mapel->id,
-            'id_siswa'=>$siswa->id,
-            'total_nilai_B'=>$nilaiB,
-            'total_nilai_S'=>$nilaiS,
-            'rata_rata'=>$rata,
-        ]);
+        $rata  = $row['skor'];
+        $this->totalRowsSuccess++;
+        // DB::table('rekap')->insert([
+        //     'id_mapel'=>$mapel->id,
+        //     'id_siswa'=>$siswa->id,
+        //     'total_jawaban_B'=>$nilaiB,
+        //     'total_jawaban_S'=>$nilaiS,
+        //     'rata_rata'=>$rata,
+        // ]);
+    }
+    public function rowsSuccess()
+    {
+        return $this->totalRowsSuccess;
+    }
+    public function totalRows()
+    {
+        return $this->totalRows;
+    }
+    public function rowsFail()
+    {
+        return $this->totalRowsFail;
+    }
+    public function getMessage()
+    {
+        if(!$this->message){
+            return false;
+        }
+        return $this->message;
     }
 }

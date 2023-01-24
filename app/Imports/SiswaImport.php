@@ -14,14 +14,22 @@ class SiswaImport implements ToModel,WithHeadingRow
     */
     public function model(array $row)
     {
+        if ($row['jurusan'] == null) {
+            return;
+        }
         $idJurusan = DB::table('jurusan')->where('jurusan',$row['jurusan'])->first();
         
-        if($idJurusan == null)dd($row['jurusan']);
+        if($idJurusan == null);
         $nama = $row['nama']; 
         $nisn = $row['nisn']; 
         $no = $row['no_peserta']; 
         $noKelas = $row['no_kelas'];
         $kelas = $row['kelas'];
+       
+
+        if($idJurusan ==null){
+        return;
+        }
             DB::table('siswa')->insert([
                 'nama'=>$nama,
                 'nisn'=>$nisn,

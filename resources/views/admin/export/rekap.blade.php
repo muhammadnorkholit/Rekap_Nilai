@@ -9,15 +9,20 @@
 </head>
 
 <body>
+    
 
     <table>
-        <tr>
-            <th colspan="8" rowspan="2">
-                <h1 class="fw-bold">
-                    REKAP NILAI <br>
+        <tr colspan="8">
+            
+            <th align="center" colspan="8" rowspan="3">
+                <h1 class="fw-bold" >
+                   REKAP NILAI   <br>
+                    {{$rekap[0]->mapel}} <br>
                     PAS GANJIL {{ $rekap[0]->kelas }} {{ $rekap[0]->jurusan }} {{ $rekap[0]->no_kelas }}
                 </h1>
             </th>
+        </tr>
+        <tr>
 
         </tr>
     </table>
@@ -41,7 +46,7 @@
                     <td>{{ $r->nama }}</td>
                     <td>{{ $r->no_peserta }}</td>
                     <td style="min-width: 300px">{{ $r->kelas }} {{ $r->jurusan }} {{ $r->no_kelas }}</td>
-                    <td style="min-width: 300px">{{ $r->mapel }}</td>
+                    <td>{{ $r->mapel }}</td>
                     <td>{{ $r->total_jawaban_B }}</td>
                     <td>{{ $r->total_jawaban_S }}</td>
                     <td>{{ $r->rata_rata }}</td>
