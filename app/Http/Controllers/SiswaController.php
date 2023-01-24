@@ -17,26 +17,35 @@ class SiswaController extends Controller
      $siswa = [];
      if (Request()->has('filter')) {
         // dd(request());
-         $siswa = DB::table('siswa')
-         ->select('jurusan','siswa.*')
+            $data = DB::table('siswa')->join("jurusan","siswa.id_jurusan","jurusan.id")->where("siswa.id",Request()->id)->first();
+        $siswa = DB::table('siswa')
+        ->select('jurusan','siswa.*')
          ->join('jurusan','siswa.id_jurusan','jurusan.id')
-           ->where('kelas',Request()->kelas)
-           ->where('no_kelas',Request()->nokelas)
-            ->where('jurusan',Request()->jurusan)
-            ->orderBy('nama','asc');
+        ->where('kelas',$data->kelas)
+        ->where('id_jurusan',$data->id)
+        ->where('no_kelas',$data->no_kelas)
+        ->orderBy('nama','asc')->get();
 
-            if(Request()->has('nokelas')){
-                $siswa->where('no_kelas',Request()->nokelas);
-            }
+        //  $siswa = DB::table('siswa')
+        //  ->select('jurusan','siswa.*')
+        //  ->join('jurusan','siswa.id_jurusan','jurusan.id')
+        //    ->where('kelas',Request()->kelas)
+        //    ->where('no_kelas',Request()->nokelas)
+        //     ->where('jurusan',Request()->jurusan)
+        //     ->orderBy('nama','asc');
+
+            // if(Request()->has('nokelas')){
+            //     $siswa->where('no_kelas',Request()->nokelas);
+            // }
             
-            $siswa = $siswa->get();
               if(count($siswa) == 0){
                 return redirect()->back()->with('alert','Data siswa tidak ditemukan');
             }
         }
 
         $jurusan = DB::table('jurusan')->get();
-        return view('admin.siswa.index',compact('siswa','jurusan'));
+         $data = DB::table('siswa')->select("kelas","no_kelas","jurusan","siswa.id")->join("jurusan","siswa.id_jurusan","jurusan.id")->groupBy("id_jurusan")->groupBy("kelas")->groupBy("no_kelas")->get();
+        return view('admin.siswa.index',compact('siswa','jurusan',"data"));
     }
 
     /**

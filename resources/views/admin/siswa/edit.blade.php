@@ -153,7 +153,8 @@
                                             <select class="form-control" data-toggle="select" name="jurusan">
                                                 <option value="" holder>Pilih Jurusan</option>
                                                 @foreach ($jurusan as $j)
-                                                    <option {{ $siswa->id == $j->id ? 'selected' : '' }}
+                                                    <option {{ $siswa->id_jurusan === $j->id ? 'selected' : '' }}
+                                                        {{ $siswa->id == $j->id ? 'selected' : '' }}
                                                         value="{{ $j->id }}"> {{ $j->jurusan }}</option>
                                                 @endforeach
                                             </select>

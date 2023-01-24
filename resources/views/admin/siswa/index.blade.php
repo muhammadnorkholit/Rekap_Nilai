@@ -42,33 +42,15 @@
                 <h2 class="text-white">Filter siswa </h2>
                 <form class="d-block " action="/admin/panel/siswa" method="get">
                     <div class="row  w-100 align-items-end">
+
                         <div class="col-3 p-1 my-2 pr-0">
-                            <label class="text-white" for="">Jurusan</label>
-                            <select name="jurusan" class="form-control m-0" id="">
-                                <option value="" holder>Pilih Jurusan</option>
-                                @foreach ($jurusan as $j)
-                                    <option value="{{ $j->jurusan }}">{{ $j->jurusan }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-3 p-1 my-2 pr-0">
-                            <label class="text-white" for="">No Kelas <small> (kosongi jika tidak
-                                    ada)</small></label>
-                            <select name="nokelas" class="form-control m-0" id="">
-                                <option value="" holder>Pilih No Kelas </option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </div>
-                        <div class="col-3 p-1 my-2 pr-0">
-                            <label class="text-white" for="">Kelas</label>
-                            <select name="kelas" class="form-control m-0" id="">
+                            <label class="text-white" for="">kelas Siswa</label>
+                            <select name="id" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Kelas</option>
-                                <option value="X">X</option>
-                                <option value="XI">XI</option>
-                                <option value="XII">XII</option>
+                                @foreach ($data as $j)
+                                    <option value="{{ $j->id }}">{{ $j->kelas }} {{ $j->jurusan }}
+                                        {{ $j->no_kelas }}</option>
+                                @endforeach
                             </select>
                         </div>
 

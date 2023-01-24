@@ -21,6 +21,7 @@ class RekapController extends Controller
         ->where('kelas',$siswa->kelas)
         ->where('mapel',Request()->mapel)
         ->where('jurusan',$siswa->jurusan)
+        ->where('no_kelas',$siswa->no_kelas)
         ->orderBy('nama','asc')->get();
       
 
@@ -67,7 +68,8 @@ class RekapController extends Controller
         
         $mapel = DB::table('mapel')->get();
         $jurusan = DB::table('jurusan')->get();
-        return view('admin.rekap.print',compact('rekap','mapel','jurusan'));
+        $siswa = DB::table('siswa')->select("kelas","no_kelas","jurusan","siswa.id")->join("jurusan","siswa.id_jurusan","jurusan.id")->groupBy("id_jurusan")->groupBy("kelas")->groupBy("no_kelas")->get();
+        return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa"));
      }
 
 

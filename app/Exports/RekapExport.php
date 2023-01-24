@@ -13,16 +13,13 @@ class RekapExport  implements FromView
   
     public function view(): View
     {
+         $siswa = DB::table('siswa')->join("jurusan","siswa.id_jurusan","jurusan.id")->where("siswa.id",Request()->id)->first();
          $rekap = DB::table('data_rekap')
-            ->where('kelas',Request()->kelas)
-            ->where('mapel',Request()->mapel)
-            ->where('jurusan',Request()->jurusan)
-            ->orderBy('nama','asc');
-            if(Request()->has('nokelas')){
-                $rekap ->where('no_kelas',Request()->nokelas);
-            }
-
-            $rekap = $rekap->get();
+        ->where('kelas',$siswa->kelas)
+        ->where('mapel',Request()->mapel)
+        ->where('jurusan',$siswa->jurusan)
+        ->where('no_kelas',$siswa->no_kelas)
+        ->orderBy('nama','asc')->get();
 
           
 
