@@ -3,7 +3,7 @@
         <!-- Brand -->
         <div class="sidenav-header d-flex align-items-center">
             <a class="navbar-brand " href="/admin/panel" style="font-size: 2.5rem;font-weight:800">
-                Rikep
+                PR...
             </a>
             <div class="ml-auto">
                 <!-- Sidenav toggler -->
