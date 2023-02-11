@@ -15,8 +15,8 @@ class SiswaController extends Controller
     public function index()
     {
      $siswa = [];
+     
      if (Request()->has('filter')) {
-        // dd(request());
             $data = DB::table('siswa')->join("jurusan","siswa.id_jurusan","jurusan.id")->where("siswa.id",Request()->id)->first();
         $siswa = DB::table('siswa')
         ->select('jurusan','siswa.*')

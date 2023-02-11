@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use DB;
 use Hash;
+use App\Models\User;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,64 +15,70 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-     Model::create([
-    "jurusan" => "REKAYASA PERANGKAT LUNAK"
-    ]);
 
-        JurusanModel::create([
-            "jurusan" => "AKUNTANSI"
+        User::create([
+            'nama'=>"admin",
+            'email'=>"admin@gmail.com",
+            'role'=>"admin",
+            'password'=>Hash::make("adminbismillah"),
         ]);
+        // Model::create([
+        // "jurusan" => "REKAYASA PERANGKAT LUNAK"
+        // ]);
+        // JurusanModel::create([
+        //     "jurusan" => "AKUNTANSI"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "MULTIMEDIA"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "MULTIMEDIA"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "TEKNIK JARINGAN DAN KOMPUTER"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "TEKNIK JARINGAN DAN KOMPUTER"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "BISJurusanNIS DARING"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "BISJurusanNIS DARING"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "DESAIN KOMUNIKASI VISUAL"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "DESAIN KOMUNIKASI VISUAL"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "LAYANAN PERBANKAN"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "LAYANAN PERBANKAN"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "MANAJEMEN PERKANTORAN"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "MANAJEMEN PERKANTORAN"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "PRODUKSI DAN SIARAN PROGRAM TELEVISIK"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "PRODUKSI DAN SIARAN PROGRAM TELEVISIK"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "AKUNTANSI DAN KEUANGAN LEMBAGA"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "AKUNTANSI DAN KEUANGAN LEMBAGA"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "BISNIS DARING DAN PEMASARAN"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "BISNIS DARING DAN PEMASARAN"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "OTOMATISASI DAN TATA KELOLA PERKANTORAN"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "OTOMATISASI DAN TATA KELOLA PERKANTORAN"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "PERBANKAN DAN KEUANGAN MIKRO"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "PERBANKAN DAN KEUANGAN MIKRO"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "PRODUKSI FILM"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "PRODUKSI FILM"
+        // ]);
 
-        JurusanModel::create([
-            "jurusan" => "DESAIN KOMUNIKASI VISUAL"
-        ]);
+        // JurusanModel::create([
+        //     "jurusan" => "DESAIN KOMUNIKASI VISUAL"
+        // ]);
     }
 }

@@ -19,10 +19,10 @@ class AuthController extends Controller
         $username = Request()->username;
         $password = Request()->password;
         
-        if(Auth::attempt(['username' => $username, 'password' => $password,'role'=>'admin'])){
+        if(Auth::attempt(['email' => $username, 'password' => $password,'role'=>'admin'])){
             return redirect()->intended('/admin/panel');
         }
-        if(Auth::attempt(['username' => $username, 'password' => $password,'role'=>'operator'])){
+        if(Auth::attempt(['email' => $username, 'password' => $password,'role'=>'operator'])){
             return redirect()->intended('/admin/panel');
         }
 
