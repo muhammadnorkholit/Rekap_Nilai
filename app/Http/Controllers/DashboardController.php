@@ -9,8 +9,16 @@ class DashboardController extends Controller
     public function index()
     {
         
+           $month = date('m');
+        if($month <= '06'){
+            $tahun = date('Y',strtotime("-1 Year"))."/".date('Y');;
+            $semester = "ganjil";
+        }else{
+             $tahun = date('Y')."/".date('Y',strtotime("+1 year"));
+            $semester = "genap";
+        }
 
-        $countSiswa = DB::table('siswa')->count();
+        $countSiswa = DB::table('siswa')->where('tahun_ajaran',$tahun)->count();
         $countJurusan = DB::table('jurusan')->count();
         $countMapel = DB::table('mapel')->count();
         $countOperator = DB::table('users')->where('role','operator')->count();

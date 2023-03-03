@@ -17,6 +17,7 @@ class ExportController extends Controller
         ->where('mapel',Request()->mapel)
         ->where('jurusan',$siswa->jurusan)
         ->where('no_kelas',$siswa->no_kelas)
+        ->where('id_ajaran',Request()->id_ajaran)
         ->orderBy('nama','asc')->get();
       
 

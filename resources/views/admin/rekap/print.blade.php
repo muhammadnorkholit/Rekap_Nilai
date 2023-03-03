@@ -56,6 +56,16 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="col-3 p-1 my-2 pr-0">
+                            <label class="text-dark" for="">Tahun Ajaran</label>
+                            <select name="id_ajaran" class="form-control m-0" id="">
+                                <option value="" holder>Pilih Kelas</option>
+                                @foreach ($tahun_ajaran as $j)
+                                    <option value="{{ $j->id }}">{{ $j->tahun }} {{ $j->semester }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="col-auto p-1 my-2">
                             <button name="filter" value="true" class="btn btn-primary m-0">Print</button>
                         </div>

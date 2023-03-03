@@ -16,8 +16,11 @@ class RekapController extends Controller
         $rekap = [];
         $tahun_ajaran = Request()->tahun_ajaran;
 
-          if (Request()->get('filter') && Request()->get('tahun_ajaran') && Request()->get('id') ) {
+          if (Request()->get('filter') ) {
         $siswa = DB::table('siswa')->join("jurusan","siswa.id_jurusan","jurusan.id")->where("siswa.id",Request()->id)->first();
+        if(!$siswa){
+                return redirect()->back()->with('alert','Data rekap tidak ditemukan');
+        }
         $rekap = DB::table('data_rekap')
         ->where('tingkatan',$siswa->tingkatan)
         ->where('mapel',Request()->mapel)
@@ -25,7 +28,6 @@ class RekapController extends Controller
         ->where('no_kelas',$siswa->no_kelas)
         ->where('id_ajaran',$tahun_ajaran)->get();
       
-
 
             if(count($rekap) == 0){
                 return redirect()->back()->with('alert','Data rekap tidak ditemukan');
@@ -76,8 +78,9 @@ class RekapController extends Controller
         $mapel = DB::table('mapel')->get();
         $jurusan = DB::table('jurusan')->get();
         $siswa = DB::table('siswa')->select("tingkatan","no_kelas","jurusan","siswa.id")->join("jurusan","siswa.id_jurusan","jurusan.id")->groupBy("id_jurusan")->groupBy("tingkatan")->groupBy("no_kelas")->get();
+         $tahun_ajaran = DB::table('tahun_ajaran')->groupBy('tahun')->orderBy('id')->get();
         
-        return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa"));
+        return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa",'tahun_ajaran'));
      }
 
 
