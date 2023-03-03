@@ -34,22 +34,33 @@
             method="post">
             @csrf
             <input type="file" name="file" onchange="form.submit()" class="d-none" id="import">
+            <a href="/admin/panel/siswa/create" class="btn btn-success">Tambah Siswa</a>
             <label for="import" class="text-white m-0 btn btn-success mr-1">Import</label>
         </form>
 
-        <div class="card bg-default shadow" id="filter">
+        <div class="card shadow" id="filter">
             <div class="card-header  bg-transparent border-0">
-                <h2 class="text-white">Filter siswa </h2>
+                <h2 class="text-dark">Filter siswa </h2>
                 <form class="d-block " action="/admin/panel/siswa" method="get">
                     <div class="row  w-100 align-items-end">
 
                         <div class="col-3 p-1 my-2 pr-0">
-                            <label class="text-white" for="">kelas Siswa</label>
+                            <label class="text-dark" for="">kelas Siswa</label>
                             <select name="id" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Kelas</option>
                                 @foreach ($data as $j)
-                                    <option value="{{ $j->id }}">{{ $j->kelas }} {{ $j->jurusan }}
+                                    <option value="{{ $j->id }}">{{ $j->tingkatan }} {{ $j->jurusan }}
                                         {{ $j->no_kelas }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-3 p-1 my-2 pr-0">
+                            <label class="text-dark" for="">Tahun Ajaran</label>
+                            <select name="tahun_ajaran" class="form-control m-0" id="">
+                                <option value="" holder>Pilih Tahun Ajaran</option>
+                                @foreach ($tahun_ajaran as $j)
+                                    <option value="{{ $j->tahun }}">{{ $j->tahun }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -67,17 +78,16 @@
             </div>
         @endif
         @if (count($siswa) > 0)
-            <div class="card bg-default shadow">
+            <div class="card shadow">
                 <div class="card-header bg-transparent border-0">
-                    <a href="/admin/panel/siswa/create" class="btn btn-primary">Tambah data</a>
-                    <form class="d-inline-block" action="/admin/panel/siswa/export" method="post">
+                    {{-- <form class="d-inline-block" action="/admin/panel/siswa/export" method="post">
                         <button type="submit" class="btn btn-primary">Export
                         </button>
-                    </form>
+                    </form> --}}
                 </div>
                 <div class="table-responsive">
-                    <table class="table align-items-center table-dark table-flush">
-                        <thead class="thead-dark" style="color: text-white;">
+                    <table class="table align-items-center table-light table-flush">
+                        <thead class="thead-light" style="color: text-white;">
                             <tr>
                                 <th scope="col" class="sort">No</th>
                                 <th scope="col" class="sort">Nama</th>
@@ -100,7 +110,7 @@
 
                                     </td>
                                     <td>
-                                        {{ $s->kelas }} {{ $s->jurusan }} {{ $s->no_kelas }}
+                                        {{ $s->tingkatan }} {{ $s->jurusan }} {{ $s->no_kelas }}
                                     </td>
                                     <td>
                                         <a class="btn btn-info" href="/admin/panel/siswa/{{ $s->id }}/edit"><i

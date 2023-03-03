@@ -44,14 +44,14 @@
             @endif
         </div>
 
-        <div class="align-items-start card bg-default shadow collapse navbar-collapse {{ Request()->filter && count($rekap) > 0 ? '' : 'show' }} "
+        <div class="align-items-start card shadow collapse navbar-collapse {{ Request()->filter && count($rekap) > 0 ? '' : 'show' }} "
             id="filter">
             <div class="card-header w-100   bg-transparent border-0">
-                <h2 class="text-white">Filter Rekap Nilai </h2>
+                <h2 class="text-dark">Filter Rekap Nilai </h2>
                 <form class="d-block " action="/admin/panel/rekap" method="get">
                     <div class="row m-0  w-100 align-items-end">
                         <div class="col-3 p-1 my-2 pr-0">
-                            <label class="text-white" for="">Mapel</label>
+                            <label class="text-dark" for="">Mapel</label>
                             <select name="mapel" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Mapel</option>
                                 @foreach ($mapel as $m)
@@ -59,13 +59,23 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-3 p-1 my-2 pr-0">
-                            <label class="text-white" for="">kelas Siswa</label>
+                        <div class="co3l- p-1 my-2 pr-0">
+                            <label class="text-dark" for="">Kelas Siswa</label>
                             <select name="id" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Kelas</option>
                                 @foreach ($siswa as $j)
-                                    <option value="{{ $j->id }}">{{ $j->kelas }} {{ $j->jurusan }}
+                                    <option value="{{ $j->id }}">{{ $j->tingkatan }} {{ $j->jurusan }}
                                         {{ $j->no_kelas }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-3 p-1 my-2 pr-0">
+                            <label class="text-dark" for="">Tahun Ajaran</label>
+                            <select name="tahun_ajaran" class="form-control m-0" id="">
+                                <option value="" holder>Pilih Tahun Ajaran</option>
+                                @foreach ($tahun_ajaran as $j)
+                                    <option value="{{ $j->id }}">{{ $j->tahun }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -77,14 +87,14 @@
             </div>
         </div>
 
-        <div class="card bg-default shadow collapse align-items-start navbar-collapse   " id="import">
-            <div class="card-header  bg-transparent border-0">
-                <h2 class="text-white">Filter Import</h2>
+        <div class="card shadow collapse align-items-start navbar-collapse   " id="import">
+            <div class="card-header w-100 bg-transparent border-0">
+                <h2 class="text-dark ">Filter Import</h2>
                 <form class="d-block " action="/admin/panel/rekapImport" enctype="multipart/form-data" method="post">
                     @csrf
                     <div class="row w-100 align-items-end">
                         <div class="col-lg-4 pr-0">
-                            <label class="text-white" for="">Pilih Mapel</label>
+                            <label class="text-dark" for="">Pilih Mapel</label>
                             <select name="mapel" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Mapel</option>
                                 @foreach ($mapel as $m)
@@ -92,12 +102,12 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-auto">
-                            <label class="text-white" for="">Pilih File Nilai</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input   " name="file" id="importfile">
+                        <div class="col-lg-4">
+                            <label class="text-dark" for="">Pilih File Nilai</label>
+                            <input type="file" class="form-control  " name="file" id="importfile">
+                            {{-- <div class="custom-file">
                                 <label for="" class="custom-file-label">Pilih File</label>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="col-auto">
                             <button class="btn btn-primary m-0">Import</button>
@@ -109,7 +119,7 @@
         <div class="row">
             <div class="col">
                 @if (count($rekap) > 0)
-                    <div class="card bg-default shadow">
+                    <div class="card shadow">
                         <div class="card-header bg-transparent border-0">
                             <a href="/admin/panel/rekap/create" class="btn btn-primary">Tambah data</a>
 
@@ -117,8 +127,8 @@
 
                         </div>
                         <div class="table-responsive">
-                            <table class="table align-items-center table-dark table-flush">
-                                <thead class="thead-dark" style="color: text-white;">
+                            <table class="table align-items-center table-light table-flush">
+                                <thead class="thead-light" style="color: text-white;">
                                     <tr>
                                         <th scope="col" class="sort">No</th>
                                         <th scope="col" class="sort">Nama</th>
@@ -144,7 +154,7 @@
                                                 {{ $r->nisn }}
                                             </td>
                                             <td>
-                                                {{ $r->kelas }} <span
+                                                {{ $r->tingkatan }} <span
                                                     class="text-capitalize">{{ $r->jurusan }}</span>
                                                 {{ $r->no_kelas }}
                                             </td>
@@ -152,10 +162,10 @@
                                                 {{ $r->mapel }}
                                             </td>
                                             <td>
-                                                {{ $r->total_jawaban_B }}
+                                                {{ $r->total_jawaban_b }}
                                             </td>
                                             <td>
-                                                {{ $r->total_jawaban_S }}
+                                                {{ $r->total_jawaban_s }}
                                             </td>
                                             <td>
                                                 {{ $r->rata_rata }}

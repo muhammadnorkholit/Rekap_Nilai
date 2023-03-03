@@ -88,22 +88,22 @@
                                     </div>
 
                                     <div class="col-md-4">
-                                        <h4><b>Kelas</b></h4>
+                                        <h4><b>Tingkatan</b></h4>
                                         <div class="form-group d-flex m-2 p-2">
                                             <div class="custom-control custom-radio m-1">
-                                                <input {{ $siswa->kelas == 'X' ? 'checked' : '' }} name="kelas"
+                                                <input {{ $siswa->tingkatan == 'X' ? 'checked' : '' }} name="kelas"
                                                     class="custom-control-input" id="x" type="radio"
                                                     value="x">
                                                 <label class="custom-control-label" for="x">x</label>
                                             </div>
                                             <div class="custom-control custom-radio m-1">
-                                                <input {{ $siswa->kelas == 'XI' ? 'checked' : '' }} name="kelas"
+                                                <input {{ $siswa->tingkatan == 'XI' ? 'checked' : '' }} name="kelas"
                                                     class="custom-control-input" id="xi" type="radio"
                                                     value="xi">
                                                 <label class="custom-control-label" for="xi">xi</label>
                                             </div>
                                             <div class="custom-control custom-radio m-1">
-                                                <input {{ $siswa->kelas == 'XII' ? 'checked' : '' }} name="kelas"
+                                                <input {{ $siswa->tingkatan == 'XII' ? 'checked' : '' }} name="kelas"
                                                     class="custom-control-input" id="xii" type="radio"
                                                     value="xii">
                                                 <label class="custom-control-label" for="xii">xii</label>

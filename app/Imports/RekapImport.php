@@ -44,14 +44,27 @@ class RekapImport implements ToModel,WithHeadingRow
         $nilaiB  = $row['b'];
         $nilaiS  = $row['s'];
         $rata  = $row['skor'];
+          $month = date('m');
+        
+        if($month <= '06'){
+            $tahun = date('Y',strtotime("-1 Year"))."/".date('Y');;
+            $semester = "ganjil";
+        }else{
+             $tahun = date('Y')."/".date('Y',strtotime("+1 year"));
+            $semester = "genap";
+        }
+
+        $id_Ajaran = DB::table('tahun_ajaran')->where('tahun',$tahun)->where('semester',$semester)->first()->id;
+        if(!$id_Ajaran)return;
         $this->totalRowsSuccess++;
-        // DB::table('rekap')->insert([
-        //     'id_mapel'=>$mapel->id,
-        //     'id_siswa'=>$siswa->id,
-        //     'total_jawaban_B'=>$nilaiB,
-        //     'total_jawaban_S'=>$nilaiS,
-        //     'rata_rata'=>$rata,
-        // ]);
+        DB::table('rekap')->insert([
+            'id_mapel'=>$mapel->id,
+            'id_siswa'=>$siswa->id,
+            'total_jawaban_B'=>$nilaiB,
+            'total_jawaban_S'=>$nilaiS,
+            'rata_rata'=>$rata,
+            'id_ajaran'=>$id_Ajaran
+         ]);
     }
     public function rowsSuccess()
     {

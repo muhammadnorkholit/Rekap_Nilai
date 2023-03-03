@@ -34,10 +34,16 @@
         .alert-notify.show {
             top: 15px
         }
+
+        ::placeholder {
+            color: white !important;
+            opacity: .8
+        }
     </style>
 </head>
 
-<body class="bg-default">
+<body
+    style="background-size: cover;background-position: center;background-image:linear-gradient(#00000059,#00000059), url({{ asset('bg.jpg') }});">
     <!-- Navbar -->
     <div data-notify="container"
         class="alert {{ Session::has('alert') ? 'show' : '' }} alert-dismissible alert-danger alert-notify animated fadeInDown"
@@ -49,16 +55,16 @@
     </div>
     <div class="main-content">
         <!-- Header -->
-        <div class="header  bg-gradient-primary ">
+        <div class="header  ">
 
             <div class="container  min-vh-100 d-flex align-items-center ">
                 <div class="row w-100 justify-content-center">
                     <div class="col-lg-5 col-md-7">
-                        <div class="card bg-secondary border-0 mb-0">
+                        <div class="card  border-0 mb-0" style="backdrop-filter: blur(20px);background:#ffffff26">
 
                             <div class="card-header
         bg-transparent pt-5">
-                                <h1 class="text-center">Masuk</h1>
+                                <h1 class="text-center text-white">Masuk</h1>
                             </div>
                             <div class="card-body px-lg-5 py-lg-2">
 
@@ -66,34 +72,35 @@
                                     @csrf
                                     <div class="form-group mb-3">
                                         <div
-                                            class="input-group input-group-merge @error('username') border-danger border @enderror input-group-alternative">
+                                            class="input-group input-group-merge @error('username') border-white border @enderror input-group-alternative">
                                             <div class="input-group-prepend ">
-                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                                                <span class="input-group-text bg-transparent"><i
+                                                        class="ni ni-circle-08 text-white"></i></span>
                                             </div>
-                                            <input class="form-control " placeholder="Username" name="username"
-                                                type="text">
+                                            <input class="form-control text-white bg-transparent"
+                                                placeholder="Username " name="username" type="text">
                                         </div>
                                         @error('username')
-                                            <small class="text-danger">{{ $message }}</small>
+                                            <small class="text-white">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <div
-                                            class="input-group input-group-merge  @error('password') border-danger border @enderror  input-group-alternative">
+                                            class="input-group input-group-merge  @error('password') border-white border @enderror  input-group-alternative">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i
-                                                        class="ni ni-lock-circle-open"></i></span>
+                                                <span class="input-group-text bg-transparent"><i
+                                                        class="ni ni-lock-circle-open text-white"></i></span>
                                             </div>
-                                            <input class="form-control" placeholder="Password" name="password"
-                                                type="password">
+                                            <input class="form-control text-white bg-transparent" placeholder="Password"
+                                                name="password" type="password">
                                         </div>
                                         @error('password')
-                                            <small class="text-danger">{{ $message }}</small>
+                                            <small class="text-white">{{ $message }}</small>
                                         @enderror
                                     </div>
 
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-primary my-4">Masuk
+                                        <button type="submit" class="w-100 btn btn-white text-primary my-4">Masuk
                                         </button>
                                     </div>
                                 </form>
@@ -103,12 +110,12 @@
 
                     </div>
                 </div>
-                <div class="separator separator-bottom separator-skew zindex-100">
+                {{-- <div class="separator separator-bottom separator-skew zindex-100">
                     <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
                         xmlns="http://www.w3.org/2000/svg">
                         <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
                     </svg>
-                </div>
+                </div> --}}
             </div>
             <!-- Page content -->
 

@@ -30,13 +30,27 @@ class SiswaImport implements ToModel,WithHeadingRow
         if($idJurusan ==null){
         return;
         }
+        $month = date('m');
+
+        if($month <= '06'){
+            $tahun = date('Y',strtotime("-1 Year"))."/".date('Y');;
+            $semester = "ganjil";
+        }else{
+             $tahun = date('Y')."/".date('Y',strtotime("+1 year"));
+            $semester = "genap";
+        }
+
+        $id_Ajaran = DB::table('tahun_ajaran')->where('tahun',$tahun)->where('semester',$semester)->first()->id;
+        if(!$id_Ajaran)return;
+
             DB::table('siswa')->insert([
                 'nama'=>$nama,
                 'nisn'=>$nisn,
                 'no_peserta'=>$no,
                 'id_jurusan'=>$idJurusan->id,
-                'kelas'=>$kelas,
-                'no_kelas'=>$noKelas
+                'tingkatan'=>$kelas,
+                'no_kelas'=>$noKelas,
+                'tahun_ajaran'=>$tahun
             ]);
     }
 }

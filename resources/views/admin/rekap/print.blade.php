@@ -31,7 +31,7 @@
     <div class="container-fluid mt--6">
 
 
-        <div class="card bg-default shadow collapse navbar-collapse {{ Request()->filter && count($rekap) > 0 ? '' : 'show' }} "
+        <div class="card shadow collapse navbar-collapse {{ Request()->filter && count($rekap) > 0 ? '' : 'show' }} "
             id="filter">
             <div class="card-header  w-100 bg-transparent border-0">
                 <h2 class="text-white">Print Rekap Nilai </h2>
@@ -47,11 +47,11 @@
                             </select>
                         </div>
                         <div class="col-3 p-1 my-2 pr-0">
-                            <label class="text-white" for="">kelas Siswa</label>
+                            <label class="text-dark" for="">kelas Siswa</label>
                             <select name="id" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Kelas</option>
                                 @foreach ($siswa as $j)
-                                    <option value="{{ $j->id }}">{{ $j->kelas }} {{ $j->jurusan }}
+                                    <option value="{{ $j->id }}">{{ $j->tingkatan }} {{ $j->jurusan }}
                                         {{ $j->no_kelas }}</option>
                                 @endforeach
                             </select>
