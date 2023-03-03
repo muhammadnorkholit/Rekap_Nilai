@@ -9,7 +9,7 @@
     <title>REKAP NILAI </title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"> --}}
     <!-- Icons -->
     <link rel="stylesheet" href="{{ asset('assets') }}/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css"
@@ -19,12 +19,16 @@
     <link rel="stylesheet" href="{{ asset('assets') }}/vendor/sweetalert2/dist/sweetalert2.min.css">
 
     <!-- Argon CSS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@500;600;700&family=Finger+Paint&family=Nunito:wght@300&family=Poppins:ital,wght@0,100;0,400;0,500;0,600;0,700;0,800;0,900;1,200&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets') }}/css/argon.css?v=1.1.0" type="text/css">
 </head>
 <style>
     label {
         cursor: pointer;
     }
+
 
     body *::-webkit-scrollbar {
         width: 10px;
@@ -89,6 +93,16 @@
 
 
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ asset('mask.js') }}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Format tahun pelajaran.
+            $('.tapel').mask('0000/0000');
+        })
+    </script>
     <script>
         const alert = document.querySelector('.alert-notify');
 

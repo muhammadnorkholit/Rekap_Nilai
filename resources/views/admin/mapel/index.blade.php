@@ -36,7 +36,7 @@
 
         <div class="row">
             <div class="col">
-                <div class="card bg-default shadow">
+                <div class="card shadow">
                     <div class="card-header bg-transparent border-0">
                         <a href="/admin/panel/mapel/create" class="btn btn-primary">Tambah data</a>
                         <form class="d-inline-block " action="/admin/panel/mapelImport" enctype="multipart/form-data"
@@ -47,8 +47,8 @@
                         </form>
                     </div>
                     <div class="table-responsive">
-                        <table class="table align-items-center table-dark table-flush">
-                            <thead class="thead-dark" style="color: text-white;">
+                        <table class="table align-items-center table-light table-flush">
+                            <thead class="thead-light" style="color: text-white;">
                                 <tr>
                                     <th scope="col" class="sort">No</th>
                                     <th scope="col" class="sort">Nama Mapel</th>

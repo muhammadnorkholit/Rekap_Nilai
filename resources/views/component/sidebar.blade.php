@@ -36,7 +36,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/panel/printRekap" role="button" aria-expanded="false"
                             aria-controls="navbar-components">
-                            <i class="fa fa-print text-info"></i>
+                            <i class="fa fa-print text-primary"></i>
                             <span class="nav-link-text">Print Rekap Nilai</span>
                         </a>
                     </li>
@@ -45,7 +45,7 @@
 
                         <a class="nav-link" href="/admin/panel/rekap" role="button" aria-expanded="false"
                             aria-controls="navbar-components">
-                            <i class="ni ni-book-bookmark text-info"></i>
+                            <i class="ni ni-book-bookmark text-primary"></i>
                             <span class="nav-link-text">Rekap Nilai</span>
                         </a>
                     </li>
@@ -53,7 +53,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/panel/siswa" role="button" aria-expanded="false"
                                 aria-controls="navbar-examples">
-                                <i class="ni ni-ungroup text-orange"></i>
+                                <i class="ni ni-ungroup text-primary"></i>
                                 <span class="nav-link-text">Siswa</span>
                             </a>
                         </li>
@@ -64,21 +64,28 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/panel/mapel" role="button" aria-expanded="false"
                                 aria-controls="navbar-components">
-                                <i class="ni ni-books text-info"></i>
+                                <i class="ni ni-books text-primary"></i>
                                 <span class="nav-link-text">Mapel</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/panel/jurusan" role="button" aria-expanded="false"
                                 aria-controls="navbar-components">
-                                <i class="ni ni-atom text-info"></i>
+                                <i class="ni ni-atom text-primary"></i>
                                 <span class="nav-link-text">Jurusan</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/panel/tahun_ajaran" role="button" aria-expanded="false"
+                                aria-controls="navbar-components">
+                                <i class="ni ni-calendar-grid-58  text-primary"></i>
+                                <span class="nav-link-text">Tahun Ajaran</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/panel/operator" role="button" aria-expanded="false"
                                 aria-controls="navbar-components">
-                                <i class="ni ni-settings text-info"></i>
+                                <i class="ni ni-settings text-primary"></i>
                                 <span class="nav-link-text">Operator</span>
                             </a>
                         </li>

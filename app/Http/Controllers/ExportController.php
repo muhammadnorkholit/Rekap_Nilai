@@ -13,7 +13,7 @@ class ExportController extends Controller
         
         $siswa = DB::table('siswa')->join("jurusan","siswa.id_jurusan","jurusan.id")->where("siswa.id",Request()->id)->first();
          $rekap = DB::table('data_rekap')
-        ->where('kelas',$siswa->kelas)
+        ->where('tingkatan',$siswa->tingkatan)
         ->where('mapel',Request()->mapel)
         ->where('jurusan',$siswa->jurusan)
         ->where('no_kelas',$siswa->no_kelas)
@@ -26,9 +26,9 @@ class ExportController extends Controller
         }
 
         if ($siswa->no_kelas != null) {
-        return Excel::download(new RekapExport, $siswa->kelas."_".str_replace(" ","_",$siswa->jurusan)."_".$siswa->no_kelas."_Mapel_".$rekap[0]->mapel.'.xlsx');
+        return Excel::download(new RekapExport, $siswa->tingkatan."_".str_replace(" ","_",$siswa->jurusan)."_".$siswa->no_kelas."_Mapel_".$rekap[0]->mapel.'.xlsx');
         }
-        return Excel::download(new RekapExport, $siswa->kelas."_".str_replace(" ","_",$siswa->jurusan)."_Mapel_".$rekap[0]->mapel.'.xlsx');
+        return Excel::download(new RekapExport, $siswa->tingkatan."_".str_replace(" ","_",$siswa->jurusan)."_Mapel_".$rekap[0]->mapel.'.xlsx');
 
     }
 }

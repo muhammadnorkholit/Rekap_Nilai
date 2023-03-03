@@ -15,37 +15,27 @@ class SiswaController extends Controller
     public function index()
     {
      $siswa = [];
+     $tahun_ajaran = Request()->tahun_ajaran;
      
-     if (Request()->has('filter')) {
+     if (Request()->has('filter') && Request()->has('tahun_ajaran') && Request()->has('id') ) {
             $data = DB::table('siswa')->join("jurusan","siswa.id_jurusan","jurusan.id")->where("siswa.id",Request()->id)->first();
         $siswa = DB::table('siswa')
         ->select('jurusan','siswa.*')
          ->join('jurusan','siswa.id_jurusan','jurusan.id')
-        ->where('kelas',$data->kelas)
+        ->where('tingkatan',$data->tingkatan)
         ->where('id_jurusan',$data->id)
         ->where('no_kelas',$data->no_kelas)
-        ->orderBy('nama','asc')->get();
-
-        //  $siswa = DB::table('siswa')
-        //  ->select('jurusan','siswa.*')
-        //  ->join('jurusan','siswa.id_jurusan','jurusan.id')
-        //    ->where('kelas',Request()->kelas)
-        //    ->where('no_kelas',Request()->nokelas)
-        //     ->where('jurusan',Request()->jurusan)
-        //     ->orderBy('nama','asc');
-
-            // if(Request()->has('nokelas')){
-            //     $siswa->where('no_kelas',Request()->nokelas);
-            // }
-            
-              if(count($siswa) == 0){
+        ->orderBy('nama','asc')
+        ->where('tahun_ajaran',$tahun_ajaran)->get();
+        if(count($siswa) == 0){
                 return redirect()->back()->with('alert','Data siswa tidak ditemukan');
             }
         }
 
         $jurusan = DB::table('jurusan')->get();
-         $data = DB::table('siswa')->select("kelas","no_kelas","jurusan","siswa.id")->join("jurusan","siswa.id_jurusan","jurusan.id")->groupBy("id_jurusan")->groupBy("kelas")->groupBy("no_kelas")->get();
-        return view('admin.siswa.index',compact('siswa','jurusan',"data"));
+         $data = DB::table('siswa')->select("tingkatan","no_kelas","jurusan","siswa.id")->join("jurusan","siswa.id_jurusan","jurusan.id")->groupBy("id_jurusan")->groupBy("tingkatan")->groupBy("no_kelas")->get();
+         $tahun_ajaran = DB::table('tahun_ajaran')->groupBy('tahun')->orderBy('id')->get();
+        return view('admin.siswa.index',compact('siswa','jurusan',"data",'tahun_ajaran'));
     }
 
     /**
@@ -84,15 +74,24 @@ class SiswaController extends Controller
         $nokelas = Request()->no_kelas;
         $idJurusan = Request()->jurusan;
         $no_peserta = Request()->no_peserta;
-
-
+        $month = date('m');
+        if($month <= '06'){
+            $tahun = date('Y',strtotime("-1 Year"))."/".date('Y');;
+            $semester = "ganjil";
+        }else{
+             $tahun = date('Y')."/".date('Y',strtotime("+1 year"));
+            $semester = "genap";
+        }
+        $id_Ajaran = DB::table('tahun_ajaran')->where('tahun',$tahun)->where('semester',$semester)->first()->id;
+        if(!$id_Ajaran)return;
         DB::table('siswa')->insert([
             'nama'=>$nama,
             'nisn'=>$nisn,
-            'kelas'=>$kelas,
+            'tingkatan'=>$kelas,
             'id_jurusan'=>$idJurusan,
             'no_kelas'=>$nokelas,
-            'no_peserta'=>$no_peserta
+            'no_peserta'=>$no_peserta,
+            'tahun_ajaran'=>$tahun
         ]);
         // dd($request);
         return redirect('/admin/panel/siswa')->with('alert','Siswa Berhasil Ditambahkan');
@@ -152,7 +151,7 @@ class SiswaController extends Controller
         DB::table('siswa')->where('id',$id)->update([
         'nama'=>$nama,
             'nisn'=>$nisn,
-            'kelas'=>$kelas,
+            'tingkatan'=>$kelas,
             'id_jurusan'=>$idJurusan,
             'no_kelas'=>$nokelas,
             'no_peserta'=>$no_peserta
