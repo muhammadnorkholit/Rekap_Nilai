@@ -182,7 +182,7 @@
         </div>
 
         {{-- message section --}}
-        <div class=" position-fixed right-0 bottom-0 w-25">
+        {{-- <div class=" position-fixed right-0 bottom-0 w-25">
             <button data-toggle="collapse" data-target="#message"
                 onclick="console.log(this.classList.toggle('ni-bold-up'),this.classList.toggle('ni-bold-down'))"
                 class="ni ni-bold-up btn btn-success mb-3 position-absolute right-25"
@@ -199,7 +199,7 @@
                     cupiditate!
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
     </div>

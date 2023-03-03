@@ -2,8 +2,8 @@
     <div class="scrollbar-inner">
         <!-- Brand -->
         <div class="sidenav-header d-flex align-items-center">
-            <a class="navbar-brand " href="/admin/panel" style="font-size: 2.5rem;font-weight:800">
-                PR...
+            <a class="navbar-brand " href="/admin/panel" style="font-size: 1.5rem;font-weight:800">
+                RekapIN
             </a>
             <div class="ml-auto">
                 <!-- Sidenav toggler -->

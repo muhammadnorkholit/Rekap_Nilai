@@ -19,7 +19,9 @@ class RekapExport  implements FromView
         ->where('mapel',Request()->mapel)
         ->where('jurusan',$siswa->jurusan)
         ->where('no_kelas',$siswa->no_kelas)
-        ->orderBy('nama','asc')->get();
+        ->where('id_ajaran',Request()->id_ajaran)
+        ->orderBy('nama','asc')
+        ->get();
 
           
 
