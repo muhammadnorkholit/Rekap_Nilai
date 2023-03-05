@@ -16,15 +16,27 @@ class RekapController extends Controller
         $rekap = [];
         $tahun_ajaran = Request()->tahun_ajaran;
 
+<<<<<<< HEAD
           if (Request()->get('filter') && Request()->get('tahun_ajaran') && Request()->get('id') ) {
         $siswa = DB::table('siswa')->join("jurusan","siswa.id_jurusan","jurusan.id")->where("siswa.id",Request()->id)->first();
+=======
+
+          if (Request()->get('filter') && Request()->get('tahun_ajaran') && Request()->get('id') ) {
+        $siswa = DB::table('siswa')->join("jurusan","siswa.id_jurusan","jurusan.id")->where("siswa.id",Request()->id)->first();
+
+          if (Request()->get('filter') ) {
+        $siswa = DB::table('siswa')->join("jurusan","siswa.id_jurusan","jurusan.id")->where("siswa.id",Request()->id)->first();
+        if(!$siswa){
+                return redirect()->back()->with('alert','Data rekap tidak ditemukan');
+        }
+>>>>>>> 71ccd3a00bc0c3f5a9bf855afeab826aa292fa38
         $rekap = DB::table('data_rekap')
         ->where('tingkatan',$siswa->tingkatan)
         ->where('mapel',Request()->mapel)
         ->where('jurusan',$siswa->jurusan)
         ->where('no_kelas',$siswa->no_kelas)
         ->where('id_ajaran',$tahun_ajaran)->get();
-      
+
 
             if(count($rekap) == 0){
                 return redirect()->back()->with('alert','Data rekap tidak ditemukan');
@@ -36,8 +48,8 @@ class RekapController extends Controller
 
         // }
 
-            
-        
+
+
         $mapel = DB::table('mapel')->get();
         $jurusan = DB::table('jurusan')->get();
         $siswa = DB::table('siswa')->select("tingkatan","no_kelas","jurusan","siswa.id")->join("jurusan","siswa.id_jurusan","jurusan.id")->groupBy("id_jurusan")->groupBy("tingkatan")->groupBy("no_kelas")->get();
@@ -45,12 +57,7 @@ class RekapController extends Controller
 
         return view('admin.rekap.index',compact('tahun_ajaran','rekap','mapel','jurusan',"siswa"));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    }
 
      public function print()
      {
@@ -70,13 +77,22 @@ class RekapController extends Controller
 
         }
 
-            
-        
         $mapel = DB::table('mapel')->get();
         $jurusan = DB::table('jurusan')->get();
         $siswa = DB::table('siswa')->select("tingkatan","no_kelas","jurusan","siswa.id")->join("jurusan","siswa.id_jurusan","jurusan.id")->groupBy("id_jurusan")->groupBy("tingkatan")->groupBy("no_kelas")->get();
+<<<<<<< HEAD
         
         return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa"));
+=======
+
+
+        return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa"));
+
+         $tahun_ajaran = DB::table('tahun_ajaran')->groupBy('tahun')->orderBy('id')->get();
+
+        return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa",'tahun_ajaran'));
+
+>>>>>>> 71ccd3a00bc0c3f5a9bf855afeab826aa292fa38
      }
 
 
@@ -86,7 +102,7 @@ class RekapController extends Controller
          $mapel = DB::table('mapel')->get();
          $siswa = DB::table('siswa')->get();
         return view('admin.rekap.create',compact('mapel','siswa','jurusan'));
-        
+
     }
 
     /**
