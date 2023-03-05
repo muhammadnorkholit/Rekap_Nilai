@@ -77,10 +77,10 @@ class SiswaController extends Controller
         $month = date('m');
         if($month <= '06'){
             $tahun = date('Y',strtotime("-1 Year"))."/".date('Y');;
-            $semester = "ganjil";
+            $semester = "genap";
         }else{
              $tahun = date('Y')."/".date('Y',strtotime("+1 year"));
-            $semester = "genap";
+            $semester = "ganjil";
         }
         $id_Ajaran = DB::table('tahun_ajaran')->where('tahun',$tahun)->where('semester',$semester)->first()->id;
         if(!$id_Ajaran)return;
