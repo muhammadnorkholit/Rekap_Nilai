@@ -60,8 +60,8 @@
                             <label class="text-dark" for="">Tahun Ajaran</label>
                             <select name="id_ajaran" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Kelas</option>
-                                @foreach ($tahun_ajaran as $j)
-                                    <option value="{{ $j->id }}">{{ $j->tahun }} {{ $j->semester }}
+                                @foreach ($tahun_ajaran as $t)
+                                    <option value="{{ $t->id }}">{{ $t->tahun }} {{ $t->semester }}
                                     </option>
                                 @endforeach
                             </select>
