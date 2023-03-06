@@ -38,6 +38,7 @@
 
     <div class="container-fluid mt--6">
         <div class="d-flex justify-content-end">
+            <a href="/admin/panel/rekap/create" class="btn btn-success mb-2">Tambah Data </a>
             <button data-target="#import" data-toggle="collapse" class="btn btn-success mb-2    ">Import </button>
             @if (Request()->has('filter'))
                 <button data-target="#filter" data-toggle="collapse" class="btn btn-success mb-2">Filter </button>

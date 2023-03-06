@@ -16,9 +16,9 @@
 
             <th align="center" colspan="8" rowspan="3">
                 <h1 class="fw-bold">
-                    REKAP NILAI <br>
+                    <br>REKAP NILAI<br>
+                    <b>USPBK {{ $rekap[0]->tingkatan }} {{ $rekap[0]->jurusan }} {{ $rekap[0]->no_kelas }} </b> <br>
                     {{ $rekap[0]->mapel }} <br>
-                    PAS GANJIL {{ $rekap[0]->tingkatan }} {{ $rekap[0]->jurusan }} {{ $rekap[0]->no_kelas }}
                 </h1>
             </th>
         </tr>
@@ -30,10 +30,10 @@
         <thead>
             <tr>
                 <th><b style="text-transform: uppercase"> No</b></th>
-                <th style="min-width: 200px"><b style="text-transform: uppercase"> NAMA SISWA</b></th>
-                <th><b style="text-transform: uppercase"> NO PESERTA</b></th>
-                <th><b style="text-transform: uppercase"> KELAS</b></th>
-                <th><b style="text-transform: uppercase"> MAPEL</b></th>
+                <th style="width: 250px"><b style="text-transform: uppercase"> NAMA SISWA</b></th>
+                <th><b style="text-transform: uppercase; width: 150px;"> NO PESERTA</b></th>
+                <th><b style="text-transform: uppercase; width: 350px;"> KELAS</b></th>
+                <th><b style="text-transform: uppercase; width: 150px;"> MAPEL</b></th>
                 <th><b style="text-transform: uppercase"> B</b></th>
                 <th><b style="text-transform: uppercase"> S</b></th>
                 <th><b style="text-transform: uppercase"> SKOR</b></th>
@@ -43,13 +43,13 @@
             @foreach ($rekap as $r)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $r->nama }}</td>
-                    <td>{{ $r->no_peserta }}</td>
-                    <td style="min-width: 300px">{{ $r->tingkatan }} {{ $r->jurusan }} {{ $r->no_kelas }}</td>
-                    <td>{{ $r->mapel }}</td>
-                    <td>{{ $r->total_jawaban_b }}</td>
-                    <td>{{ $r->total_jawaban_s }}</td>
-                    <td>{{ $r->rata_rata }}</td>
+                    <td style="width:250px;">{{ $r->nama }}</td>
+                    <td style="width:150px;" align="left">{{ $r->no_peserta }}</td>
+                    <td style="width:350px;">{{ $r->tingkatan }} {{ $r->jurusan }} {{ $r->no_kelas }}</td>
+                    <td style="width:150px;">{{ $r->mapel }}</td>
+                    <td align="left">{{ $r->total_jawaban_b }}</td>
+                    <td align="left">{{ $r->total_jawaban_s }}</td>
+                    <td align="left">{{ $r->rata_rata }}</td>
                 </tr>
             @endforeach
         </tbody>
