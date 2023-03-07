@@ -10,6 +10,12 @@ class ExportController extends Controller
 {
     public function exportRekap()
     {
+        Request()->validate([
+            'mapel'=>'required',
+            'id_ajaran'=>'required',
+            'id'=>'required',
+            'id_jenis'=>'required'
+        ]);
         $siswa = DB::table('siswa')->join("jurusan","siswa.id_jurusan","jurusan.id")->where("siswa.id",Request()->id)->first();
          $rekap = DB::table('data_rekap')
         ->where('tingkatan',$siswa->tingkatan)
@@ -18,7 +24,6 @@ class ExportController extends Controller
         ->where('no_kelas',$siswa->no_kelas)
         ->where('id_ajaran',Request()->id_ajaran)
         ->orderBy('nama','asc')->get();
-
 
         if (count($rekap) == 0) {
             return redirect()->back()->with('alert','Data Rekap Tidak Ditemukan');

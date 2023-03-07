@@ -13,7 +13,6 @@
 
     <table>
         <tr colspan="8">
-
             <th align="center" colspan="8" rowspan="3">
                 <h1 class="fw-bold">
                     <br>REKAP NILAI<br>

@@ -11,6 +11,7 @@ use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TahunController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\JenisUjianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,7 @@ Route::resource('/admin/panel/siswa',SiswaController::class );
 Route::resource('/admin/panel/jurusan',JurusanController::class );
 Route::resource('/admin/panel/tahun_ajaran',TahunController::class );
 Route::resource('/admin/panel/operator',OperatorController::class );
+Route::resource('/admin/panel/jenis-ujian',JenisUjianController::class );
 
 
 Route::post('/admin/panel/mapelImport',[ImportController::class,'importMapel']);

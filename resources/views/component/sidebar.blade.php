@@ -46,10 +46,17 @@
                         <a class="nav-link" href="/admin/panel/rekap" role="button" aria-expanded="false"
                             aria-controls="navbar-components">
                             <i class="ni ni-book-bookmark text-primary"></i>
-                            <span class="nav-link-text">Rekap Nilai</span>
+                            <span class="nav-link-text">Data Rekap Nilai</span>
                         </a>
                     </li>
                     @if (auth()->user()->role == 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/panel/jenis-ujian" role="button" aria-expanded="false"
+                                aria-controls="navbar-examples">
+                                <i class="ni ni-ungroup text-primary"></i>
+                                <span class="nav-link-text">Jenis Ujian</span>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/panel/siswa" role="button" aria-expanded="false"
                                 aria-controls="navbar-examples">

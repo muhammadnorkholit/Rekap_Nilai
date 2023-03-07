@@ -82,6 +82,16 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="col-3 p-1 my-2 pr-0">
+                            <label class="text-dark" for="">Jenis Ujian</label>
+                            <select name="jenis" class="form-control m-0" id="">
+                                <option value="" holder>Pilih Jenis Ujian</option>
+                                @foreach ($jenis as $j)
+                                    <option value="{{ $j->id }}">{{ $j->jenis }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="col-3 p-1 my-2">
                             <button name="filter" value="true" class="btn btn-primary m-0">Filter</button>
                         </div>
@@ -107,14 +117,24 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
                             <label class="text-dark" for="">Pilih File Nilai</label>
                             <input type="file" class="form-control  " name="file" id="importfile">
-                            {{-- <div class="custom-file">
-                                <label for="" class="custom-file-label">Pilih File</label>
-                            </div> --}}
                         </div>
-                        <div class="col-auto">
+                        <div class="col-3">
+                            <label class="text-dark" for="">Jenis Ujian</label>
+                            <select name="jenis" class="form-control m-0" id="">
+                                <option value="" holder>Pilih Jenis Ujian</option>
+                                @foreach ($jenis as $j)
+                                    <option value="{{ $j->id }}">{{ $j->jenis }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+
+
+                        <div class="col-auto mt-2">
                             <button class="btn btn-primary m-0">Import</button>
                         </div>
                     </div>

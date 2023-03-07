@@ -21,18 +21,30 @@ class RekapImport implements ToModel,WithHeadingRow
 
     public function model(array $row)
     {
+
         $this->totalRows++;
-     
-        if(!array_key_exists('skor',$row)){
+
+        if(!array_key_exists('rata_rata',$row)){
             $this->message = "Format Excel Tidak Sesuai";
             return;
         }
-        if(( $row['skor'] == null)){
+        if(( $row['rata_rata'] == null)){
             $this->totalRowsFail++;
             return ;
         }
+
+        $month = date('m');
+
+        if($month <= '06'){
+            $tahun = date('Y',strtotime("-1 Year"))."/".date('Y');;
+            $semester = "genap";
+        }else{
+             $tahun = date('Y')."/".date('Y',strtotime("+1 year"));
+            $semester = "ganjil";
+        }
+
         $mapel = DB::table('mapel')->where('id',Request()->mapel)->first();
-        $siswa = DB::table('siswa')->where('no_peserta',$row['no_peserta'])->first();
+        $siswa = DB::table('siswa')->where('no_peserta',$row['no_peserta'])->where('tahun_ajaran',$tahun)->first();
         $count = DB::table('data_rekap')
         ->where('mapel',$mapel->mapel)
         ->where('no_peserta',$row['no_peserta'])
@@ -40,19 +52,12 @@ class RekapImport implements ToModel,WithHeadingRow
         ->count();
 
         if($count > 0)return;
-      
+
         $nilaiB  = $row['b'];
         $nilaiS  = $row['s'];
-        $rata  = $row['skor'];
-          $month = date('m');
-        
-        if($month <= '06'){
-            $tahun = date('Y',strtotime("-1 Year"))."/".date('Y');;
-            $semester = "ganjil";
-        }else{
-             $tahun = date('Y')."/".date('Y',strtotime("+1 year"));
-            $semester = "genap";
-        }
+        $rata  = $row['rata_rata'];
+
+
 
         $id_Ajaran = DB::table('tahun_ajaran')->where('tahun',$tahun)->where('semester',$semester)->first()->id;
         if(!$id_Ajaran)return;
@@ -63,7 +68,8 @@ class RekapImport implements ToModel,WithHeadingRow
             'total_jawaban_B'=>$nilaiB,
             'total_jawaban_S'=>$nilaiS,
             'rata_rata'=>$rata,
-            'id_ajaran'=>$id_Ajaran
+            'id_ajaran'=>$id_Ajaran,
+            'id_jenis'=>Request()->jenis,
          ]);
     }
     public function rowsSuccess()

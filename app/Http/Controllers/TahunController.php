@@ -37,7 +37,7 @@ class TahunController extends Controller
     public function store(Request $request)
     {
         Request()->validate([
-            'tahun'=>'required|unique:tahun_ajaran,tahun,',
+            'tahun'=>'required',
             'semester'=>'required',
         ]);
 
@@ -50,7 +50,7 @@ class TahunController extends Controller
         DB::table('tahun_ajaran')->insert([
 
             'tahun'=>$tahun,
-            'semester'=>$semester,  
+            'semester'=>$semester,
         ]);
         // dd($request);
         return redirect('/admin/panel/tahun_ajaran')->with('alert','Tahun Ajaran Berhasil Ditambahkan');
@@ -97,13 +97,13 @@ class TahunController extends Controller
         $tahun = Request()->tahun;
         $semester = Request()->semester;
         $ada = DB::table('tahun_ajaran')->where('semester',$semester)->where('tahun',$tahun)->count();
-        if($ada > 0){
-        return redirect()->back()->withInput()->with('error','Tahun Ajaran Sudah Ada');
-        }
+        // if($ada > 0){
+        // return redirect()->back()->withInput()->with('error','Tahun Ajaran Sudah Ada');
+        // }
         DB::table('tahun_ajaran')->where('id', $id)->update([
 
             'tahun'=>$tahun,
-            'semester'=>$semester,  
+            'semester'=>$semester,
         ]);
         // dd($request);
         return redirect('/admin/panel/tahun_ajaran')->with('alert','Tahun Ajaran Berhasil DiUbah');

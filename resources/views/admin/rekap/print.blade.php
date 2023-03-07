@@ -36,15 +36,18 @@
             <div class="card-header  w-100 bg-transparent border-0">
                 <h2 class="text-white">Print Rekap Nilai </h2>
                 <form class="d-block " action="/admin/panel/rekapExport" method="get">
-                    <div class="row  m-0 w-100 align-items-end">
+                    <div class="row  m-0 w-100 ">
                         <div class="col-3 p-1 my-2 pr-0">
                             <label for="">Mapel</label>
                             <select name="mapel" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Mapel</option>
                                 @foreach ($mapel as $m)
-                                    <option value="{{ $m->mapel }}">{{ $m->mapel }}</option>
+                                    <option value="{{ $m->id }}">{{ $m->mapel }}</option>
                                 @endforeach
                             </select>
+                            @error('mapel')
+                                <small class="text-danger">Silahkan Pilih Mapel</small>
+                            @enderror
                         </div>
                         <div class="col-3 p-1 my-2 pr-0">
                             <label class="text-dark" for="">kelas Siswa</label>
@@ -55,6 +58,9 @@
                                         {{ $j->no_kelas }}</option>
                                 @endforeach
                             </select>
+                            @error('id')
+                                <small class="text-danger">Silahkan Pilih Siswa</small>
+                            @enderror
                         </div>
                         <div class="col-3 p-1 my-2 pr-0">
                             <label class="text-dark" for="">Tahun Ajaran</label>
@@ -65,6 +71,22 @@
                                     </option>
                                 @endforeach
                             </select>
+                            @error('id_ajaran')
+                                <small class="text-danger">Silahkan Pilih Tahun Ajaran</small>
+                            @enderror
+                        </div>
+                        <div class="col-3 p-1 my-2 pr-0">
+                            <label class="text-dark" for="">Jenis Ujian</label>
+                            <select name="id_jenis" class="form-control m-0" id="">
+                                <option value="" holder>Pilih jenis</option>
+                                @foreach ($jenis as $j)
+                                    <option value="{{ $j->id }}">{{ $j->jenis }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('id_jenis')
+                                <small class="text-danger">Silahkan Pilih Jenis Ujian</small>
+                            @enderror
                         </div>
                         <div class="col-auto p-1 my-2">
                             <button name="filter" value="true" class="btn btn-primary m-0">Print</button>

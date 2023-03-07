@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jenis_Ujian;
+
 use Illuminate\Http\Request;
 use DB;
 class RekapController extends Controller
@@ -42,10 +44,12 @@ class RekapController extends Controller
         $jurusan = DB::table('jurusan')->get();
         $siswa = DB::table('siswa')->select("tingkatan","no_kelas","jurusan","siswa.id")->join("jurusan","siswa.id_jurusan","jurusan.id")->groupBy("id_jurusan")->groupBy("tingkatan")->groupBy("no_kelas")->get();
          $tahun_ajaran = DB::table('tahun_ajaran')->groupBy('tahun')->orderBy('id')->get();
+        $jenis = Jenis_Ujian::all();
 
-        return view('admin.rekap.index',compact('tahun_ajaran','rekap','mapel','jurusan',"siswa"));
+
+        return view('admin.rekap.index',compact('tahun_ajaran','rekap','mapel','jurusan',"siswa", 'jenis'));
     }
-    
+
 
      public function print()
      {
@@ -68,15 +72,11 @@ class RekapController extends Controller
         $mapel = DB::table('mapel')->get();
         $jurusan = DB::table('jurusan')->get();
         $siswa = DB::table('siswa')->select("tingkatan","no_kelas","jurusan","siswa.id")->join("jurusan","siswa.id_jurusan","jurusan.id")->groupBy("id_jurusan")->groupBy("tingkatan")->groupBy("no_kelas")->get();
-        
-        // return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa"));
-
-
-        // return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa"));
+        $jenis = Jenis_Ujian::all();
 
          $tahun_ajaran = DB::table('tahun_ajaran')->orderBy('id')->get();
 
-        return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa",'tahun_ajaran'));
+        return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa",'tahun_ajaran', 'jenis'));
 
      }
 
@@ -86,8 +86,8 @@ class RekapController extends Controller
          $mapel = DB::table('mapel')->get();
          $siswa = DB::table('siswa')->get();
          $tahun = DB::table('tahun_ajaran')->get();
-        return view('admin.rekap.create',compact('mapel','siswa', 'tahun'));
-
+         $jenis = Jenis_Ujian::all();
+        return view('admin.rekap.create',compact('mapel','siswa', 'tahun', 'jenis'));
     }
 
     /**
