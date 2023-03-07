@@ -38,6 +38,7 @@
 
     <div class="container-fluid mt--6">
         <div class="d-flex justify-content-end">
+            <a href="/admin/panel/rekap/create" class="btn btn-success mb-2">Tambah Data </a>
             <button data-target="#import" data-toggle="collapse" class="btn btn-success mb-2    ">Import </button>
             @if (Request()->has('filter'))
                 <button data-target="#filter" data-toggle="collapse" class="btn btn-success mb-2">Filter </button>
@@ -59,7 +60,8 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="co3l- p-1 my-2 pr-0">
+
+                        <div class="col-3 p-1 my-2 pr-0">
                             <label class="text-dark" for="">Kelas Siswa</label>
                             <select name="id" class="form-control m-0" id="">
                                 <option value="" holder>Pilih Kelas</option>
@@ -69,6 +71,7 @@
                                 @endforeach
                             </select>
                         </div>
+
                         <div class="col-3 p-1 my-2 pr-0">
                             <label class="text-dark" for="">Tahun Ajaran</label>
                             <select name="tahun_ajaran" class="form-control m-0" id="">
