@@ -45,11 +45,7 @@ class RekapController extends Controller
 
         return view('admin.rekap.index',compact('tahun_ajaran','rekap','mapel','jurusan',"siswa"));
     }
-<<<<<<< HEAD
     
-=======
-
->>>>>>> 5f8fa02897768a69c1d053da74e52740992316fc
 
      public function print()
      {
@@ -72,7 +68,6 @@ class RekapController extends Controller
         $mapel = DB::table('mapel')->get();
         $jurusan = DB::table('jurusan')->get();
         $siswa = DB::table('siswa')->select("tingkatan","no_kelas","jurusan","siswa.id")->join("jurusan","siswa.id_jurusan","jurusan.id")->groupBy("id_jurusan")->groupBy("tingkatan")->groupBy("no_kelas")->get();
-<<<<<<< HEAD
         
         // return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa"));
 
@@ -83,10 +78,6 @@ class RekapController extends Controller
 
         return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa",'tahun_ajaran'));
 
-=======
-        $tahun_ajaran = DB::table('tahun_ajaran')->get();
-        return view('admin.rekap.print',compact('rekap','mapel','jurusan',"siswa", 'tahun_ajaran'));
->>>>>>> 5f8fa02897768a69c1d053da74e52740992316fc
      }
 
 
