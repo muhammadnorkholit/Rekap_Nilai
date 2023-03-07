@@ -17,6 +17,7 @@ class DashboardController extends Controller
              $tahun = date('Y')."/".date('Y',strtotime("+1 year"));
             $semester = "genap";
         }
+        
 
         $countSiswa = DB::table('siswa')->where('tahun_ajaran',$tahun)->count();
         $countJurusan = DB::table('jurusan')->count();

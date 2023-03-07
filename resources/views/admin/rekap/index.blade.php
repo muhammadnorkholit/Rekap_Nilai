@@ -90,6 +90,8 @@
         <div class="card shadow collapse align-items-start navbar-collapse   " id="import">
             <div class="card-header w-100 bg-transparent border-0">
                 <h2 class="text-dark ">Filter Import</h2>
+                <h4>Format Excel </h4>
+                <h5> | NAMA | NO PESERTA | B | S | SKOR |</h5>
                 <form class="d-block " action="/admin/panel/rekapImport" enctype="multipart/form-data" method="post">
                     @csrf
                     <div class="row w-100 align-items-end">

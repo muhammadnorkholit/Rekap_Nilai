@@ -39,12 +39,12 @@
                 <div class="card  shadow">
                     <div class="card-header border-0">
                         <a href="/admin/panel/operator/create" class="btn btn-primary">Tambah data</a>
-                        <form class="d-inline-block " action="/admin/panel/operatorImport" enctype="multipart/form-data"
+                        {{-- <form class="d-inline-block " action="/admin/panel/operatorImport" enctype="multipart/form-data"
                             method="post">
                             @csrf
                             <input type="file" name="file" onchange="form.submit()" class="d-none" id="import">
                             <label for="import" class="m-0 btn btn-primary">Import</label>
-                        </form>
+                        </form> --}}
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-light table-flush">
